@@ -1,139 +1,65 @@
 # Brand Usage Rules
 
-This document outlines the rules and guidelines for using BlackRoad OS brand assets.
+These rules enforce consistent, compliant use of BlackRoad OS assets wherever the brand appears.
 
 ## Purpose
 
-These guidelines ensure consistent and appropriate use of the BlackRoad OS brand across all channels and materials. Following these rules helps maintain brand integrity and recognition.
+BlackRoad OS is the canonical visual identity of the Road. Follow these rules to keep applications, decks, docs, and marketing aligned.
 
 ## Logo Usage
 
-### Do's
-- Use the official logo files from `/brand-kit`
-- Maintain minimum clear space around the logo
-- Use approved logo variations for different backgrounds
-- Scale the logo proportionally
-- Use high-resolution versions for print
+### Do
+- Use official logo files from `/brand-kit`.
+- Maintain minimum clear space equal to the logo height (see `logo-protection-zones.md`).
+- Scale proportionally and use high-resolution vector files first (SVG/PDF).
+- Match logo color to the approved palette; prefer dark backdrops with controlled glow.
 
-### Don'ts
-- Don't distort, rotate, or skew the logo
-- Don't change the logo colors
-- Don't add effects (shadows, gradients, outlines)
-- Don't place the logo on busy backgrounds
-- Don't recreate or modify the logo
+### Don't
+- Distort, rotate, recolor, or apply unapproved effects.
+- Place on busy or low-contrast backgrounds.
+- Pair with unapproved partner marks without clearance.
 
 ## Color Guidelines
 
-### Primary Colors
-- Use the official color palette from `/brand-kit/colors`
-- Maintain color consistency across all materials
-- Use approved color combinations
-
-### Accessibility
-- Ensure sufficient contrast ratios (WCAG 2.1 AA minimum)
-- Test colors for colorblind accessibility
-- Provide alternative indicators beyond color alone
+- Use the official palette in `/brand/colors.md` and tokens from `/brand/tokens.json`.
+- Keep neon accents minimal; dark surfaces should dominate.
+- Ensure WCAG 2.1 AA contrast and provide non-color affordances for status.
 
 ## Typography
 
-### Approved Fonts
-- Use only the fonts specified in `/brand-kit/fonts`
-- Follow the typographic hierarchy guidelines
-- Maintain consistent font weights and sizes
-
-### Web and Digital
-- Use web-safe fallback fonts
-- Ensure readability across devices
-- Follow responsive typography guidelines
+- Use JetBrains Mono for headings, labels, and code.
+- Use Inter for body copy; keep title case for product names.
+- Maintain consistent hierarchy and spacing from `/brand/typography.md`.
 
 ## Image and Asset Usage
 
-### Photography
-- Use high-quality, professional images
-- Maintain consistent style and tone
-- Follow composition guidelines
-
-### Graphics and Illustrations
-- Use assets from `/assets` directory
-- Maintain visual consistency with brand style
-- Credit sources when required
+- Pull imagery and graphics from `/assets` and `/brand-kit` to preserve consistency.
+- Favor neon horizon, fractal-road, and quantum geometry themes; avoid cartoonish or noisy art.
+- Optimize assets for the target medium (web, print, email) and include alt text where applicable.
 
 ## Voice and Tone
 
-### Brand Voice
-- Professional yet approachable
-- Clear and concise
-- Technical but accessible
-- Innovative and forward-thinking
+- Professional, technical, and direct; avoid jargon that obscures meaning.
+- Use active voice and consistent terminology; stay inclusive and respectful.
 
-### Writing Guidelines
-- Use active voice
-- Avoid jargon unless necessary
-- Be inclusive and respectful
-- Maintain consistency in terminology
+## Social & Third-Party
 
-## Social Media
-
-### Profile Assets
-- Use official profile pictures and cover images from `/assets/social-media`
-- Follow platform-specific sizing requirements
-- Maintain brand consistency across platforms
-
-### Content Guidelines
-- Use approved hashtags and handles
-- Include brand elements in graphics
-- Follow platform-specific best practices
-
-## Third-Party Usage
-
-### Partner Materials
-- Provide brand kit to approved partners
-- Require approval for co-branded materials
-- Monitor and enforce brand guidelines
-
-### Community Use
-- Allow fair use with proper attribution
-- Provide downloadable assets for community
-- Prohibit misleading or unauthorized use
+- Use official profile and cover assets sized per platform.
+- Provide partners with the brand kit and require approval for co-branded materials.
+- Community use is allowed with attribution; prohibit misleading or unauthorized use.
 
 ## Legal Considerations
 
-### Trademark Usage
-- BlackRoad OS is a trademark
-- Use ™ or ® symbols as appropriate
-- Include trademark notices in official materials
-
-### Licensing
-- Review license agreements for all assets
-- Respect copyright and intellectual property
-- Attribute third-party resources properly
+- BlackRoad OS is trademarked; use ™ or ® where appropriate.
+- Respect licensing for all assets and attribute third-party resources when required.
 
 ## Approval Process
 
-### When Approval is Required
-- New marketing campaigns
-- Partnership materials
-- Major brand applications
-- Non-standard uses of brand assets
+- Approval required for new campaigns, partnerships, and non-standard applications.
+- Submit materials to the brand team with time for review and iteration before publishing.
 
-### How to Get Approval
-- Submit materials to the brand team
-- Allow adequate review time
-- Address feedback and iterate
-- Obtain written approval before publishing
+## Updates
 
-## Questions and Support
-
-For questions about brand usage or to request approval for specific applications:
-- Review this documentation thoroughly
-- Check the `/brand-kit` for available assets
-- Contact the brand team for guidance
-
-## Updates and Revisions
-
-This guide is subject to updates. Check regularly for the latest version and follow any new guidelines as they are published.
-
----
-
-**Last Updated**: [Date to be added]
-**Version**: 1.0
+- Check this document regularly; new rules supersede previous versions.
+- **Last Updated**: 2025-03-19  
+- **Version**: 1.1
