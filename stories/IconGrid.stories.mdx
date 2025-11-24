@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+<Meta title="IconGrid" />
+
+# Icon Grid
+
+Phosphor sprite subset for BlackRoad OS surfaces. Embed using `<svg><use href="#ph-planet" /></svg>`.
+
+<Canvas>
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '16px', alignItems: 'center' }}>
+    {['ph-planet', 'ph-sparkle', 'ph-rows'].map((id) => (
+      <div
+        key={id}
+        style={{
+          display: 'grid',
+          gap: '8px',
+          placeItems: 'center',
+          padding: '16px',
+          borderRadius: '12px',
+          border: '1px solid var(--br-color-neutral-300, #2a2a3d)',
+          background: 'var(--br-color-neutral-100, #0c0c15)',
+        }}
+      >
+        <svg width="64" height="64" fill="currentColor" style={{ color: 'hsl(265 86% 62%)' }}>
+          <use href={`/icons/phosphor-sprite.svg#${id}`} />
+        </svg>
+        <code style={{ fontFamily: 'var(--br-typography-font-mono, "JetBrains Mono", monospace)' }}>{`/icons/phosphor-sprite.svg#${id}`}</code>
+      </div>
+    ))}
+  </div>
+</Canvas>

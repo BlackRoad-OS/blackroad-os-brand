@@ -1,0 +1,49 @@
+{
+  "color": {
+    "primary": {
+      "value": "265 86% 62%",
+      "type": "color",
+      "description": "Core neon magenta for calls-to-action"
+    },
+    "secondary": {
+      "value": "195 82% 55%",
+      "type": "color",
+      "description": "Supporting cyan used for data surfaces"
+    },
+    "accent": {
+      "value": "45 96% 62%",
+      "type": "color",
+      "description": "Solar accent for highlights and focus rings"
+    },
+    "positive": {
+      "value": "150 65% 50%",
+      "type": "color"
+    },
+    "negative": {
+      "value": "6 78% 58%",
+      "type": "color"
+    },
+    "neutral": {
+      "100": { "value": "240 17% 12%", "type": "color" },
+      "200": { "value": "240 16% 18%", "type": "color" },
+      "300": { "value": "240 14% 26%", "type": "color" },
+      "400": { "value": "240 12% 44%", "type": "color" },
+      "500": { "value": "240 10% 62%", "type": "color" },
+      "600": { "value": "240 8% 74%", "type": "color" }
+    },
+    "gradient": {
+      "pulse": {
+        "value": "linear-gradient(135deg, hsl(265 86% 62%), hsl(195 82% 55%))",
+        "type": "gradient"
+      },
+      "amber": {
+        "value": "linear-gradient(135deg, hsl(12 86% 64%), hsl(45 96% 62%))",
+        "type": "gradient"
+      },
+      "noir": {
+        "value": "linear-gradient(145deg, hsl(240 17% 12%), hsl(240 10% 32%))",
+        "type": "gradient"
+      }
+    }
+  }
+}

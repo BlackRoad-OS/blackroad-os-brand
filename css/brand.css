@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Inter Variable';
+  src: url('/fonts/inter-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  src: url('/fonts/jetbrains-mono-variable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+:root {
+  --br-color-primary: hsl(265 86% 62%);
+  --br-color-secondary: hsl(195 82% 55%);
+  --br-color-accent: hsl(45 96% 62%);
+  --br-color-positive: hsl(150 65% 50%);
+  --br-color-negative: hsl(6 78% 58%);
+  --br-color-neutral-100: hsl(240 17% 12%);
+  --br-color-neutral-200: hsl(240 16% 18%);
+  --br-color-neutral-300: hsl(240 14% 26%);
+  --br-color-neutral-400: hsl(240 12% 44%);
+  --br-color-neutral-500: hsl(240 10% 62%);
+  --br-color-neutral-600: hsl(240 8% 74%);
+  --br-color-gradient-pulse: linear-gradient(135deg, hsl(265 86% 62%), hsl(195 82% 55%));
+  --br-color-gradient-amber: linear-gradient(135deg, hsl(12 86% 64%), hsl(45 96% 62%));
+  --br-color-gradient-noir: linear-gradient(145deg, hsl(240 17% 12%), hsl(240 10% 32%));
+  --br-motion-duration-fast: 120ms;
+  --br-motion-duration-base: 200ms;
+  --br-motion-duration-slow: 320ms;
+  --br-motion-easing-in: cubic-bezier(0.44, 0, 1, 1);
+  --br-motion-easing-out: cubic-bezier(0, 0, 0.2, 1);
+  --br-motion-easing-inOut: cubic-bezier(0.45, 0, 0.55, 1);
+  --br-radius-sm: 0.25rem;
+  --br-radius-md: 0.5rem;
+  --br-radius-lg: 0.75rem;
+  --br-radius-xl: 1rem;
+  --br-radius-pill: 999px;
+  --br-spacing-0: 0rem;
+  --br-spacing-2: 0.125rem;
+  --br-spacing-4: 0.25rem;
+  --br-spacing-8: 0.5rem;
+  --br-spacing-12: 0.75rem;
+  --br-spacing-16: 1rem;
+  --br-spacing-20: 1.25rem;
+  --br-spacing-24: 1.5rem;
+  --br-spacing-32: 2rem;
+  --br-spacing-40: 2.5rem;
+  --br-spacing-48: 3rem;
+  --br-spacing-56: 3.5rem;
+  --br-spacing-64: 4rem;
+  --br-spacing-72: 4.5rem;
+  --br-spacing-80: 5rem;
+  --br-spacing-96: 6rem;
+  --br-typography-font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+  --br-typography-font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'SFMono-Regular', monospace;
+  --br-typography-weight-regular: 400;
+  --br-typography-weight-medium: 500;
+  --br-typography-weight-semibold: 600;
+  --br-typography-weight-bold: 700;
+  --br-typography-size-xs: 0.75rem;
+  --br-typography-size-sm: 0.875rem;
+  --br-typography-size-md: 1rem;
+  --br-typography-size-lg: 1.25rem;
+  --br-typography-size-xl: 1.5rem;
+  --br-typography-size-2xl: 1.875rem;
+  --br-typography-size-3xl: 2.25rem;
+  --br-typography-lineHeight-tight: 1.1;
+  --br-typography-lineHeight-snug: 1.3;
+  --br-typography-lineHeight-relaxed: 1.6;
+}

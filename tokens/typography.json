@@ -1,0 +1,28 @@
+{
+  "typography": {
+    "font": {
+      "sans": { "value": "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif", "type": "font" },
+      "mono": { "value": "'JetBrains Mono Variable', 'JetBrains Mono', 'SFMono-Regular', monospace", "type": "font" }
+    },
+    "weight": {
+      "regular": { "value": "400", "type": "fontWeight" },
+      "medium": { "value": "500", "type": "fontWeight" },
+      "semibold": { "value": "600", "type": "fontWeight" },
+      "bold": { "value": "700", "type": "fontWeight" }
+    },
+    "size": {
+      "xs": { "value": "0.75rem", "type": "fontSize" },
+      "sm": { "value": "0.875rem", "type": "fontSize" },
+      "md": { "value": "1rem", "type": "fontSize" },
+      "lg": { "value": "1.25rem", "type": "fontSize" },
+      "xl": { "value": "1.5rem", "type": "fontSize" },
+      "2xl": { "value": "1.875rem", "type": "fontSize" },
+      "3xl": { "value": "2.25rem", "type": "fontSize" }
+    },
+    "lineHeight": {
+      "tight": { "value": "1.1", "type": "lineHeight" },
+      "snug": { "value": "1.3", "type": "lineHeight" },
+      "relaxed": { "value": "1.6", "type": "lineHeight" }
+    }
+  }
+}

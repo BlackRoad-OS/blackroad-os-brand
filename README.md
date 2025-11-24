@@ -1,26 +1,32 @@
-# BlackRoad OS Brand
+# BlackRoad OS · Brand System (Gen-0)
 
-The official brand system for the BlackRoad ecosystem. This repository is the single source of truth for colors, gradients, typography, logos, iconography, spacing, and template guidance.
+> Single source of truth for neon gradients, typography, motion, and icon assets across BlackRoad OS.
 
-## Contents
+## Quickstart
 
-- `/brand` — canonical tokens (colors, gradients, typography, spacing) and references for implementation.
-- `/guides` — brand rules, protection zones, UI guidance, monetization safety, and philosophy.
-- `/brand-kit` — asset directory structure for logos, palettes, fonts, and icon sets.
-- `/assets` — imagery and downloadable resources aligned to the neon geometry of the Road.
-- `/templates` — presentation and email templates with usage notes.
-- `/public` — health endpoints for deployment monitoring.
+```bash
+pnpm i
+pnpm run tokens         # build Style Dictionary → css/brand.css + src/tokens.ts
+pnpm run storybook      # http://localhost:6006
+```
 
-## Usage
+Build static docs:
 
-1. Start with `/brand/tokens.json` to pull color, gradient, typography, and spacing values into apps and decks.
-2. Import `/brand/blackroad.css` for a single, ready-to-use set of CSS variables covering colors, gradients, typography scales, spacing, and layout radii.
-3. Follow `/guides/brand-guide.md` and `/guides/usage-rules.md` to keep visual language consistent; use `/guides/monetization-and-ads.md` to keep sponsor placements safe and on-brand.
-4. Use vector assets from `/brand-kit` and `/assets` as-is; never recreate or recolor logos.
-5. Keep implementations dark-first, neon-accented, and minimal to maintain the BlackRoad OS feel.
+```bash
+pnpm run build:docs     # outputs to .out
+```
 
-## Contribution Guidelines
+## What ships here
+- **Tokens** in `/tokens` kept lightweight (<60 lines each) using HSL for dark/light pivoting.
+- **Style Dictionary** config in `/build` generates CSS custom properties and TypeScript token maps.
+- **CSS output** in `/css/brand.css` powers Storybook and any consuming surface.
+- **Icons** live in `/src/icons/phosphor-sprite.svg` with a curated Phosphor subset.
+- **Components** under `/src/components` keep previews small and composable for Storybook.
+- **Docs** via Storybook 8 (see `/storybook` + `/stories`).
+- **Fonts** self-hosted (`/fonts`) for Inter + JetBrains Mono variable faces.
+- **CI** GitHub Actions builds tokens then Storybook static docs for future pages deploy.
 
-- Maintain token-driven definitions; avoid hard-coded, one-off values.
-- Keep documentation concise and actionable for designers, engineers, and marketing teams.
-- Avoid application logic; this repo defines identity only.
+## Notes & TODOs
+- No secrets committed; `.brand.env.example` exists for future CDN buckets.
+- `scripts/postbuild.ts` stamps `public/sig.beacon.json` after builds.
+- // TODO(brand-next): hook up animated logo + PDF template kit export.
