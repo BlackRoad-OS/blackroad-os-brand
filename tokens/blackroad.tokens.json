@@ -1,0 +1,11 @@
+{
+  "color": {
+    "accent": { "pink": "#ff4fd8", "electric": "#00ffef" },
+    "neutral": { "900": "#0a0a0a", "50": "#fafafa" }
+  },
+  "radius": { "xs": "2px", "md": "6px", "xl": "16px" },
+  "font": {
+    "display": "'Inter Tight', sans-serif",
+    "body": "'Inter', sans-serif"
+  }
+}

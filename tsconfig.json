@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "types": ["node", "react", "react-dom"]
   },
-  "include": ["src", "stories", "build", "scripts", "storybook", "tokens"],
+  "include": ["src", "stories", "build", "scripts", "storybook", "tokens", "packages"],
   "exclude": ["node_modules", "css"]
 }

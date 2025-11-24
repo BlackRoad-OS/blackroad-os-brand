@@ -1,15 +1,15 @@
 :root {
-  font-family: var(--br-typography-font-sans, 'Inter', system-ui, sans-serif);
-  background: var(--br-color-neutral-100, #0c0c15);
-  color: var(--br-color-neutral-600, #d1d2e0);
+  font-family: var(--br-font-body, 'Inter', system-ui, sans-serif);
+  background: var(--br-surface, #0a0a0a);
+  color: var(--br-text, #fafafa);
 }
 
 a {
-  color: var(--br-color-secondary, hsl(195 82% 55%));
+  color: var(--br-color-accent-electric, #00ffef);
 }
 
 .sbdocs-wrapper {
-  background: radial-gradient(circle at 20% 20%, rgba(77, 156, 255, 0.08), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(206, 87, 255, 0.12), transparent 30%),
-    var(--br-color-neutral-100, #0c0c15);
+  background: radial-gradient(circle at 20% 20%, rgba(255, 79, 216, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(0, 255, 239, 0.12), transparent 30%),
+    var(--br-surface, #0a0a0a);
 }
