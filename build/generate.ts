@@ -52,4 +52,7 @@ const run = async () => {
   await Promise.all([writeCss(flat), writeTs(flat)]);
 };
 
-run();
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
