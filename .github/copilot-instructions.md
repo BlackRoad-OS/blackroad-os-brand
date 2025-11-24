@@ -315,8 +315,8 @@ If present / useful, maintain:
 
 Keep scripts small, self-contained, and documented in `README.md`:
 
-* `npm run lint`
-* `npm run validate-tokens`
+* `pnpm run lint`
+* `pnpm run tokens` (validates and generates tokens)
 
 ---
 
