@@ -14,9 +14,10 @@ The official brand system for the BlackRoad ecosystem. This repository is the si
 ## Usage
 
 1. Start with `/brand/tokens.json` to pull color, gradient, typography, and spacing values into apps and decks.
-2. Follow `/guides/brand-guide.md` and `/guides/usage-rules.md` to keep visual language consistent.
-3. Use vector assets from `/brand-kit` and `/assets` as-is; never recreate or recolor logos.
-4. Keep implementations dark-first, neon-accented, and minimal to maintain the BlackRoad OS feel.
+2. Import `/brand/blackroad.css` for a single, ready-to-use set of CSS variables covering colors, gradients, typography scales, spacing, and layout radii.
+3. Follow `/guides/brand-guide.md` and `/guides/usage-rules.md` to keep visual language consistent.
+4. Use vector assets from `/brand-kit` and `/assets` as-is; never recreate or recolor logos.
+5. Keep implementations dark-first, neon-accented, and minimal to maintain the BlackRoad OS feel.
 
 ## Contribution Guidelines
 
