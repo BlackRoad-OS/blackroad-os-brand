@@ -12,7 +12,7 @@
 
 ---
 
-## Quickstart
+## 🚀 Quickstart
 
 ```bash
 pnpm i
@@ -33,7 +33,7 @@ pnpm run build:docs     # outputs to .out
 ### 🎨 Visual Identity
 - **Color palette** (neons, neutrals, semantic status colors) 🌈
 - **Typography stack** (JetBrains Mono, Inter, fallbacks) ✍️
-- **Logo & wordmark rules** (BlackRoad OS, Lucidia, etc.) 🛣️
+- **Logo & wordmark rules** (BlackRoad OS, Lucida, etc.) 🛣️
 
 ### 🧬 Design Tokens
 - **Color tokens** (primary, secondary, background, border, accent) 🎛️
@@ -66,7 +66,7 @@ pnpm run build:docs     # outputs to .out
 
 ---
 
-## What Ships Here
+## 📦 What Ships Here
 
 - **Tokens** in `/tokens` kept lightweight (<60 lines each) using HSL for dark/light pivoting.
 - **Style Dictionary** config in `/build` generates CSS custom properties and TypeScript token maps.
@@ -140,7 +140,7 @@ If a new designer/dev/agent lands here, they should be able to:
 
 ---
 
-## Notes & TODOs
+## 📝 Notes & TODOs
 
 - No secrets committed; `.brand.env.example` exists for future CDN buckets.
 - `scripts/postbuild.ts` stamps `public/sig.beacon.json` after builds.
