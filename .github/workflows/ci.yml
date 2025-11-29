@@ -10,6 +10,15 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,3 +47,40 @@ jobs:
 
       - name: Test
         run: npm test --if-present
+          node-version: 20
+          cache: 'pnpm'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile=false
+      - name: Generate tokens
+        run: pnpm run tokens
+      - name: Lint TypeScript
+        run: pnpm run lint:ts
+      - name: Lint CSS
+        run: pnpm run lint:css
+      - name: Validate SVGs
+        run: pnpm run lint:svg
+      - name: Validate tokens
+        run: pnpm run lint:tokens
+      - name: Build Storybook
+        run: pnpm run build:docs
+      - name: Upload Storybook artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .out
+  deploy:
+    if: github.event_name == 'push'
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

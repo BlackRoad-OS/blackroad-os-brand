@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../css/brand.css';
+import { applyTheme, tokens } from '../packages/brand-js/src';
+import '../src/styles/tailwind.css';
 import './preview.css';
 
 const preview: Preview = {
@@ -14,17 +15,23 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Palette', 'Typography', 'IconGrid'],
+        order: ['Intro', 'ColorPalette', 'TypographyScale', 'LogoVariants', 'Buttons'],
       },
     },
     backgrounds: {
       default: 'noir',
       values: [
-        { name: 'noir', value: 'hsl(240 17% 12%)' },
-        { name: 'paper', value: '#0c0c15' },
+        { name: 'noir', value: '#0a0a0a' },
+        { name: 'paper', value: '#fafafa' },
       ],
     },
   },
+  decorators: [
+    (Story) => {
+      applyTheme(tokens, { dark: true });
+      return Story();
+    },
+  ],
 };
 
 export default preview;
