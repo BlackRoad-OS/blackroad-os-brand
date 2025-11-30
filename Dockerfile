@@ -30,4 +30,4 @@ ENV PORT=3000
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "serve -s build -l ${PORT:-3000} || serve -s dist -l ${PORT:-3000} || serve -s public -l ${PORT:-3000}"]
+CMD ["sh", "-c", "serve -s build -p ${PORT:-3000} || serve -s dist -p ${PORT:-3000} || serve -s public -p ${PORT:-3000}"]
