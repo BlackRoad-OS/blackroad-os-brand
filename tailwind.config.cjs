@@ -18,10 +18,11 @@ module.exports = {
         'vivid-purple': '#7700FF',
         'cyber-blue': '#0066FF',
 
-        // Neutrals
+        // Neutrals (darker - almost black)
         'br-black': '#000000',
-        'deep-black': '#0A0A0A',
-        charcoal: '#1A1A1A',
+        'deep-black': '#050505',
+        charcoal: '#0D0D0D',
+        slate: '#141414',
         'br-white': '#FFFFFF',
 
         // Semantic
@@ -32,11 +33,12 @@ module.exports = {
         focus: '#FF006B',
         depth: '#D600AA',
 
-        // Surfaces
+        // Surfaces (darker)
         surface: {
           base: '#000000',
-          elevated: '#0A0A0A',
-          card: '#1A1A1A',
+          elevated: '#050505',
+          card: '#0D0D0D',
+          panel: '#141414',
         },
       },
       fontFamily: {

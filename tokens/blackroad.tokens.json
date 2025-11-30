@@ -11,8 +11,9 @@
     },
     "neutral": {
       "black": "#000000",
-      "deepBlack": "#0A0A0A",
-      "charcoal": "#1A1A1A",
+      "deepBlack": "#050505",
+      "charcoal": "#0D0D0D",
+      "slate": "#141414",
       "white": "#FFFFFF"
     },
     "gradient": {
