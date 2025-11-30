@@ -1,29 +1,69 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./stories/**/*.{js,ts,jsx,tsx,mdx}', './src/**/*.{js,ts,jsx,tsx,mdx}', './packages/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './stories/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './packages/**/*.{js,ts,jsx,tsx,mdx}',
+    './index.html',
+  ],
   theme: {
     extend: {
       colors: {
-        accent: {
-          pink: 'var(--br-color-accent-pink)',
-          electric: 'var(--br-color-accent-electric)',
-        },
-        neutral: {
-          50: 'var(--br-color-neutral-50)',
-          900: 'var(--br-color-neutral-900)',
+        // Neon Spectrum
+        sunrise: '#FF9D00',
+        'warm-orange': '#FF6B00',
+        'hot-pink': '#FF0066',
+        'electric-magenta': '#FF006B',
+        'deep-magenta': '#D600AA',
+        'vivid-purple': '#7700FF',
+        'cyber-blue': '#0066FF',
+
+        // Neutrals
+        'br-black': '#000000',
+        'deep-black': '#0A0A0A',
+        charcoal: '#1A1A1A',
+        'br-white': '#FFFFFF',
+
+        // Semantic
+        action: '#FF9D00',
+        creativity: '#FF0066',
+        intelligence: '#7700FF',
+        trust: '#0066FF',
+        focus: '#FF006B',
+        depth: '#D600AA',
+
+        // Surfaces
+        surface: {
+          base: '#000000',
+          elevated: '#0A0A0A',
+          card: '#1A1A1A',
         },
       },
       fontFamily: {
-        display: "var(--br-font-display)",
-        body: "var(--br-font-body)",
+        display: ['Inter Tight', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       borderRadius: {
-        xs: 'var(--br-radius-xs)',
-        md: 'var(--br-radius-md)',
-        xl: 'var(--br-radius-xl)',
+        xs: '2px',
+        sm: '4px',
+        md: '8px',
+        lg: '12px',
+        xl: '16px',
+        '2xl': '24px',
       },
       boxShadow: {
-        glow: '0 10px 50px rgba(0, 255, 239, 0.25)',
+        'glow-orange': '0 0 30px rgba(255, 157, 0, 0.4)',
+        'glow-pink': '0 0 30px rgba(255, 0, 102, 0.4)',
+        'glow-purple': '0 0 30px rgba(119, 0, 255, 0.4)',
+        'glow-blue': '0 0 30px rgba(0, 102, 255, 0.4)',
+        'glow-magenta': '0 0 30px rgba(255, 0, 107, 0.4)',
+      },
+      backgroundImage: {
+        'gradient-brand': 'linear-gradient(180deg, #FF9D00 0%, #FF6B00 50%, #FF0066 100%)',
+        'gradient-os': 'linear-gradient(180deg, #FF0066 0%, #D600AA 33%, #7700FF 66%, #0066FF 100%)',
+        'gradient-brand-h': 'linear-gradient(90deg, #FF9D00 0%, #FF6B00 50%, #FF0066 100%)',
+        'gradient-os-h': 'linear-gradient(90deg, #FF0066 0%, #D600AA 33%, #7700FF 66%, #0066FF 100%)',
       },
     },
   },

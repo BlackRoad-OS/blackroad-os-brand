@@ -1,12 +1,239 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap');
+/**
+ * BlackRoad OS Brand System
+ * Color Goblin Edition
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
-  --br-color-accent-pink: #ff4fd8;
-  --br-color-accent-electric: #00ffef;
-  --br-color-neutral-50: #fafafa;
-  --br-color-neutral-900: #0a0a0a;
+  /* ========== NEON SPECTRUM ========== */
+  --br-sunrise: #FF9D00;
+  --br-warm-orange: #FF6B00;
+  --br-hot-pink: #FF0066;
+  --br-electric-magenta: #FF006B;
+  --br-deep-magenta: #D600AA;
+  --br-vivid-purple: #7700FF;
+  --br-cyber-blue: #0066FF;
+
+  /* ========== NEUTRALS ========== */
+  --br-black: #000000;
+  --br-deep-black: #0A0A0A;
+  --br-charcoal: #1A1A1A;
+  --br-white: #FFFFFF;
+
+  /* ========== GRADIENTS ========== */
+  --br-gradient-brand: linear-gradient(180deg, #FF9D00 0%, #FF6B00 50%, #FF0066 100%);
+  --br-gradient-os: linear-gradient(180deg, #FF0066 0%, #D600AA 33%, #7700FF 66%, #0066FF 100%);
+  --br-gradient-brand-horizontal: linear-gradient(90deg, #FF9D00 0%, #FF6B00 50%, #FF0066 100%);
+  --br-gradient-os-horizontal: linear-gradient(90deg, #FF0066 0%, #D600AA 33%, #7700FF 66%, #0066FF 100%);
+
+  /* ========== SEMANTIC COLORS ========== */
+  --br-action: var(--br-sunrise);
+  --br-creativity: var(--br-hot-pink);
+  --br-intelligence: var(--br-vivid-purple);
+  --br-trust: var(--br-cyber-blue);
+  --br-focus: var(--br-electric-magenta);
+  --br-depth: var(--br-deep-magenta);
+
+  /* ========== SURFACES ========== */
+  --br-surface-base: var(--br-black);
+  --br-surface-elevated: var(--br-deep-black);
+  --br-surface-card: var(--br-charcoal);
+  --br-text-primary: var(--br-white);
+  --br-text-secondary: rgba(255, 255, 255, 0.7);
+  --br-text-muted: rgba(255, 255, 255, 0.5);
+
+  /* ========== GLOW SHADOWS ========== */
+  --br-glow-orange: 0 0 30px rgba(255, 157, 0, 0.4);
+  --br-glow-pink: 0 0 30px rgba(255, 0, 102, 0.4);
+  --br-glow-purple: 0 0 30px rgba(119, 0, 255, 0.4);
+  --br-glow-blue: 0 0 30px rgba(0, 102, 255, 0.4);
+  --br-glow-magenta: 0 0 30px rgba(255, 0, 107, 0.4);
+
+  /* ========== TYPOGRAPHY ========== */
+  --br-font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --br-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --br-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ========== RADII ========== */
   --br-radius-xs: 2px;
-  --br-radius-md: 6px;
+  --br-radius-sm: 4px;
+  --br-radius-md: 8px;
+  --br-radius-lg: 12px;
   --br-radius-xl: 16px;
-  --br-font-display: 'Inter Tight', sans-serif;
-  --br-font-body: 'Inter', sans-serif;
+  --br-radius-2xl: 24px;
+  --br-radius-full: 9999px;
+
+  /* ========== SPACING ========== */
+  --br-space-1: 4px;
+  --br-space-2: 8px;
+  --br-space-3: 12px;
+  --br-space-4: 16px;
+  --br-space-5: 20px;
+  --br-space-6: 24px;
+  --br-space-8: 32px;
+  --br-space-10: 40px;
+  --br-space-12: 48px;
+  --br-space-16: 64px;
+
+  /* ========== TRANSITIONS ========== */
+  --br-transition-fast: 150ms ease;
+  --br-transition-normal: 250ms ease;
+  --br-transition-slow: 400ms ease;
 }
+
+/* ========== BASE STYLES ========== */
+body {
+  background: var(--br-surface-base);
+  color: var(--br-text-primary);
+  font-family: var(--br-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== UTILITY CLASSES ========== */
+
+/* Backgrounds */
+.bg-brand-gradient { background: var(--br-gradient-brand); }
+.bg-os-gradient { background: var(--br-gradient-os); }
+.bg-surface-base { background: var(--br-surface-base); }
+.bg-surface-elevated { background: var(--br-surface-elevated); }
+.bg-surface-card { background: var(--br-surface-card); }
+
+/* Neon Colors */
+.bg-sunrise { background: var(--br-sunrise); }
+.bg-warm-orange { background: var(--br-warm-orange); }
+.bg-hot-pink { background: var(--br-hot-pink); }
+.bg-electric-magenta { background: var(--br-electric-magenta); }
+.bg-deep-magenta { background: var(--br-deep-magenta); }
+.bg-vivid-purple { background: var(--br-vivid-purple); }
+.bg-cyber-blue { background: var(--br-cyber-blue); }
+
+/* Text Colors */
+.text-sunrise { color: var(--br-sunrise); }
+.text-warm-orange { color: var(--br-warm-orange); }
+.text-hot-pink { color: var(--br-hot-pink); }
+.text-electric-magenta { color: var(--br-electric-magenta); }
+.text-deep-magenta { color: var(--br-deep-magenta); }
+.text-vivid-purple { color: var(--br-vivid-purple); }
+.text-cyber-blue { color: var(--br-cyber-blue); }
+.text-primary { color: var(--br-text-primary); }
+.text-secondary { color: var(--br-text-secondary); }
+.text-muted { color: var(--br-text-muted); }
+
+/* Border Colors */
+.border-sunrise { border-color: var(--br-sunrise); }
+.border-hot-pink { border-color: var(--br-hot-pink); }
+.border-vivid-purple { border-color: var(--br-vivid-purple); }
+.border-cyber-blue { border-color: var(--br-cyber-blue); }
+.border-electric-magenta { border-color: var(--br-electric-magenta); }
+
+/* Glow Effects */
+.glow-orange { box-shadow: var(--br-glow-orange); }
+.glow-pink { box-shadow: var(--br-glow-pink); }
+.glow-purple { box-shadow: var(--br-glow-purple); }
+.glow-blue { box-shadow: var(--br-glow-blue); }
+.glow-magenta { box-shadow: var(--br-glow-magenta); }
+
+/* Text Gradient */
+.text-gradient-brand {
+  background: var(--br-gradient-brand-horizontal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-os {
+  background: var(--br-gradient-os-horizontal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== COMPONENT STYLES ========== */
+
+/* Primary Button (Action/Deploy) */
+.btn-primary {
+  background: var(--br-gradient-brand-horizontal);
+  color: var(--br-black);
+  font-family: var(--br-font-display);
+  font-weight: 600;
+  padding: var(--br-space-3) var(--br-space-6);
+  border-radius: var(--br-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--br-transition-fast);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--br-glow-orange);
+  transform: translateY(-1px);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  color: var(--br-hot-pink);
+  font-family: var(--br-font-display);
+  font-weight: 600;
+  padding: var(--br-space-3) var(--br-space-6);
+  border-radius: var(--br-radius-md);
+  border: 1px solid var(--br-hot-pink);
+  cursor: pointer;
+  transition: all var(--br-transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--br-hot-pink);
+  color: var(--br-black);
+  box-shadow: var(--br-glow-pink);
+}
+
+/* Card */
+.card {
+  background: var(--br-surface-card);
+  border-radius: var(--br-radius-lg);
+  padding: var(--br-space-6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-glow {
+  background: var(--br-surface-card);
+  border-radius: var(--br-radius-lg);
+  padding: var(--br-space-6);
+  border: 1px solid var(--br-electric-magenta);
+  box-shadow: var(--br-glow-magenta);
+}
+
+/* Input */
+.input {
+  background: var(--br-surface-card);
+  color: var(--br-text-primary);
+  font-family: var(--br-font-body);
+  padding: var(--br-space-3) var(--br-space-4);
+  border-radius: var(--br-radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color var(--br-transition-fast);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--br-vivid-purple);
+  box-shadow: 0 0 0 3px rgba(119, 0, 255, 0.2);
+}
+
+/* Badge/Chip */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--br-space-1) var(--br-space-3);
+  border-radius: var(--br-radius-full);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--br-font-display);
+}
+
+.badge-action { background: var(--br-sunrise); color: var(--br-black); }
+.badge-creativity { background: var(--br-hot-pink); color: var(--br-white); }
+.badge-intelligence { background: var(--br-vivid-purple); color: var(--br-white); }
+.badge-trust { background: var(--br-cyber-blue); color: var(--br-white); }

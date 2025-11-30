@@ -3,427 +3,321 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Assets | BlackRoad OS</title>
+  <title>Brand System | BlackRoad OS</title>
+  <link rel="stylesheet" href="css/brand.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --surface2: #151515;
-      --border: #222;
-      --text: #e0e0e0;
-      --text-secondary: #999;
-      --muted: #666;
-      --accent: #FF9D00;
-      --accent2: #FF6B00;
-      --accent3: #FF0066;
-      --accent4: #D600AA;
-      --accent5: #7700FF;
-      --accent6: #0066FF;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+
     .header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
+      background: var(--br-surface-elevated);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
     .logo {
+      font-family: var(--br-font-display);
       font-size: 1.5rem;
       font-weight: 700;
     }
-    .logo span { color: var(--accent); }
+
+    .logo span {
+      background: var(--br-gradient-brand-horizontal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
+
     h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-family: var(--br-font-display);
+      font-size: 3rem;
+      font-weight: 800;
       margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
+
+    h2 {
+      font-family: var(--br-font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 3rem 0 1.5rem;
+      color: var(--br-text-secondary);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--br-gradient-os);
       margin-bottom: 3rem;
     }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
+
+    .hero h1 {
+      color: white;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
     }
-    /* Color Palette */
+
+    .hero p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    /* Color Swatches */
     .color-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1rem;
-      margin-bottom: 2rem;
     }
-    .color-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .color-card:hover { transform: translateY(-2px); }
+
     .color-swatch {
-      height: 100px;
+      aspect-ratio: 1;
+      border-radius: var(--br-radius-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      font-family: var(--br-font-mono);
+      font-size: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .color-swatch::before {
+      content: attr(data-name);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: var(--br-font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .color-swatch.dark-text { color: var(--br-black); }
+    .color-swatch.dark-text::before { color: var(--br-black); }
+    .color-swatch.light-text { color: var(--br-white); }
+    .color-swatch.light-text::before { color: var(--br-white); }
+
+    /* Gradient Swatches */
+    .gradient-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gradient-swatch {
+      height: 200px;
+      border-radius: var(--br-radius-xl);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 600;
-    }
-    .color-info {
-      padding: 1rem;
-      text-align: center;
-    }
-    .color-name {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .color-hex {
-      font-family: 'SF Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .color-hex:hover { color: var(--accent); }
-    /* Logo Display */
-    .logo-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .logo-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-    }
-    .logo-card.dark { background: var(--surface); }
-    .logo-card.light { background: #fff; }
-    .logo-display {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .logo-display span { color: var(--accent); }
-    .logo-card.light .logo-display { color: #000; }
-    .logo-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .logo-card.light .logo-label { color: #666; }
-    /* Typography */
-    .type-sample {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 1rem;
-    }
-    .type-display {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .type-alphabet {
+      font-family: var(--br-font-display);
       font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-    .type-numbers {
-      font-family: 'SF Mono', monospace;
-      color: var(--muted);
-    }
-    /* Usage Guidelines */
-    .guidelines {
+
+    /* Component Showcase */
+    .component-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 1rem;
     }
-    .guideline-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
+
+    .component-demo {
+      background: var(--br-surface-card);
+      border-radius: var(--br-radius-xl);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .guideline-card h4 {
+
+    .component-demo h3 {
+      font-family: var(--br-font-display);
       font-size: 1rem;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .guideline-card.do h4 { color: #00D26A; }
-    .guideline-card.dont h4 { color: #FF3366; }
-    .guideline-card ul {
-      padding-left: 1.25rem;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-    .guideline-card li { margin-bottom: 0.5rem; }
-    /* Gradients */
-    .gradient-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .gradient-card {
-      height: 120px;
-      border-radius: 12px;
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem;
       font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--br-text-secondary);
     }
-    .gradient-1 { background: linear-gradient(135deg, #FF9D00, #FF0066); }
-    .gradient-2 { background: linear-gradient(135deg, #FF0066, #7700FF); }
-    .gradient-3 { background: linear-gradient(135deg, #7700FF, #0066FF); }
-    .gradient-4 { background: linear-gradient(135deg, #FF9D00, #FF6B00, #FF0066, #7700FF); }
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-    }
-    .btn-primary:hover { background: var(--accent2); }
-    .button-showcase {
+
+    .button-row {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      padding: 2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
     }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
+
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
-    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* Typography */
+    .type-sample {
+      margin-bottom: 2rem;
+    }
+
+    .type-sample h3 {
+      font-size: 0.875rem;
+      color: var(--br-text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .type-display {
+      font-family: var(--br-font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .type-body {
+      font-family: var(--br-font-body);
+      font-size: 1rem;
+    }
+
+    .type-mono {
+      font-family: var(--br-font-mono);
+      font-size: 0.875rem;
+      background: var(--br-surface-card);
+      padding: 1rem;
+      border-radius: var(--br-radius-md);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem;
+      color: var(--br-text-muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--br-cyber-blue);
+      text-decoration: none;
+    }
+
     @media (max-width: 768px) {
-      .guidelines { grid-template-columns: 1fr; }
+      .gradient-grid { grid-template-columns: 1fr; }
       h1 { font-size: 2rem; }
     }
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      display: none;
-      z-index: 1000;
-    }
-    .toast.show { display: block; }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo"><span>Black</span>Road</div>
-    <nav style="display: flex; gap: 1rem;">
-      <a href="https://blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Home</a>
-      <a href="https://docs.blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Docs</a>
-    </nav>
+    <div class="logo"><span>BlackRoad</span> OS</div>
+    <a href="https://github.com/BlackRoad-OS/blackroad-os-brand" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">GitHub</a>
   </header>
 
+  <div class="hero">
+    <h1>Brand System</h1>
+    <p>Color Goblin Edition</p>
+  </div>
+
   <div class="container">
-    <h1>Brand Assets</h1>
-    <p class="subtitle">Guidelines and resources for using the BlackRoad brand.</p>
-
-    <h2>Color Palette</h2>
+    <!-- Neon Spectrum -->
+    <h2>Neon Spectrum</h2>
     <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF9D00; color: #000;">Primary</div>
-        <div class="color-info">
-          <div class="color-name">Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF9D00')">#FF9D00</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF6B00; color: #000;">Secondary</div>
-        <div class="color-info">
-          <div class="color-name">Deep Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF6B00')">#FF6B00</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF0066; color: #fff;">Accent</div>
-        <div class="color-info">
-          <div class="color-name">Pink</div>
-          <div class="color-hex" onclick="copyColor('#FF0066')">#FF0066</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF006B; color: #fff;">Accent Alt</div>
-        <div class="color-info">
-          <div class="color-name">Rose</div>
-          <div class="color-hex" onclick="copyColor('#FF006B')">#FF006B</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #D600AA; color: #fff;">Magenta</div>
-        <div class="color-info">
-          <div class="color-name">Magenta</div>
-          <div class="color-hex" onclick="copyColor('#D600AA')">#D600AA</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #7700FF; color: #fff;">Violet</div>
-        <div class="color-info">
-          <div class="color-name">Violet</div>
-          <div class="color-hex" onclick="copyColor('#7700FF')">#7700FF</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0066FF; color: #fff;">Blue</div>
-        <div class="color-info">
-          <div class="color-name">Blue</div>
-          <div class="color-hex" onclick="copyColor('#0066FF')">#0066FF</div>
-        </div>
-      </div>
+      <div class="color-swatch dark-text" style="background: var(--br-sunrise);" data-name="Sunrise">#FF9D00</div>
+      <div class="color-swatch dark-text" style="background: var(--br-warm-orange);" data-name="Warm Orange">#FF6B00</div>
+      <div class="color-swatch light-text" style="background: var(--br-hot-pink);" data-name="Hot Pink">#FF0066</div>
+      <div class="color-swatch light-text" style="background: var(--br-electric-magenta);" data-name="Electric Magenta">#FF006B</div>
+      <div class="color-swatch light-text" style="background: var(--br-deep-magenta);" data-name="Deep Magenta">#D600AA</div>
+      <div class="color-swatch light-text" style="background: var(--br-vivid-purple);" data-name="Vivid Purple">#7700FF</div>
+      <div class="color-swatch light-text" style="background: var(--br-cyber-blue);" data-name="Cyber Blue">#0066FF</div>
     </div>
 
-    <h3>Neutrals</h3>
+    <!-- Neutrals -->
+    <h2>Neutrals</h2>
     <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0a0a0a; color: #fff;">Background</div>
-        <div class="color-info">
-          <div class="color-name">Dark</div>
-          <div class="color-hex" onclick="copyColor('#0a0a0a')">#0a0a0a</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #111111; color: #fff;">Surface</div>
-        <div class="color-info">
-          <div class="color-name">Surface</div>
-          <div class="color-hex" onclick="copyColor('#111111')">#111111</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #222222; color: #fff;">Border</div>
-        <div class="color-info">
-          <div class="color-name">Border</div>
-          <div class="color-hex" onclick="copyColor('#222222')">#222222</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #e0e0e0; color: #000;">Text</div>
-        <div class="color-info">
-          <div class="color-name">Primary Text</div>
-          <div class="color-hex" onclick="copyColor('#e0e0e0')">#e0e0e0</div>
-        </div>
-      </div>
+      <div class="color-swatch light-text" style="background: var(--br-black); border: 1px solid rgba(255,255,255,0.2);" data-name="Pure Black">#000000</div>
+      <div class="color-swatch light-text" style="background: var(--br-deep-black);" data-name="Deep Black">#0A0A0A</div>
+      <div class="color-swatch light-text" style="background: var(--br-charcoal);" data-name="Charcoal">#1A1A1A</div>
+      <div class="color-swatch dark-text" style="background: var(--br-white);" data-name="Pure White">#FFFFFF</div>
     </div>
 
-    <h2>Logo</h2>
-    <div class="logo-section">
-      <div class="logo-card dark">
-        <div class="logo-display"><span>Black</span>Road</div>
-        <div class="logo-label">Dark Background</div>
-      </div>
-      <div class="logo-card light">
-        <div class="logo-display"><span style="color: #FF9D00;">Black</span>Road</div>
-        <div class="logo-label">Light Background</div>
-      </div>
-    </div>
-
+    <!-- Gradients -->
     <h2>Gradients</h2>
     <div class="gradient-grid">
-      <div class="gradient-card gradient-1">Orange → Pink</div>
-      <div class="gradient-card gradient-2">Pink → Violet</div>
-      <div class="gradient-card gradient-3">Violet → Blue</div>
-      <div class="gradient-card gradient-4">Full Spectrum</div>
+      <div class="gradient-swatch" style="background: var(--br-gradient-brand);">Brand Gradient</div>
+      <div class="gradient-swatch" style="background: var(--br-gradient-os);">OS Gradient</div>
     </div>
 
+    <!-- Typography -->
     <h2>Typography</h2>
     <div class="type-sample">
-      <div class="type-display">System Font Stack</div>
-      <div class="type-alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-      <div class="type-alphabet">abcdefghijklmnopqrstuvwxyz</div>
-      <div class="type-numbers">0123456789</div>
+      <h3>Display / Inter Tight</h3>
+      <div class="type-display text-gradient-brand">The road out is the road back.</div>
     </div>
-    <p style="color: var(--text-secondary);">
-      <strong>Primary:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif<br>
-      <strong>Monospace:</strong> 'SF Mono', 'Fira Code', monospace
-    </p>
-
-    <h2>Buttons</h2>
-    <div class="button-showcase">
-      <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-ghost">Secondary Button</button>
-      <button class="btn btn-primary" disabled style="opacity: 0.5;">Disabled</button>
+    <div class="type-sample">
+      <h3>Body / Inter</h3>
+      <div class="type-body">BlackRoad OS is an operating system for the future. We build transparent, trustworthy infrastructure that puts humans first.</div>
+    </div>
+    <div class="type-sample">
+      <h3>Mono / JetBrains Mono</h3>
+      <div class="type-mono">const agent = await blackroad.spawn({ type: 'orchestrator' });</div>
     </div>
 
-    <h2>Usage Guidelines</h2>
-    <div class="guidelines">
-      <div class="guideline-card do">
-        <h4>Do</h4>
-        <ul>
-          <li>Use the official color palette</li>
-          <li>Maintain clear space around the logo</li>
-          <li>Use dark backgrounds for primary contexts</li>
-          <li>Apply gradients for emphasis</li>
-          <li>Keep text highly readable</li>
-        </ul>
+    <!-- Components -->
+    <h2>Components</h2>
+    <div class="component-grid">
+      <div class="component-demo">
+        <h3>Buttons</h3>
+        <div class="button-row">
+          <button class="btn-primary">Deploy</button>
+          <button class="btn-secondary">Learn More</button>
+        </div>
       </div>
-      <div class="guideline-card dont">
-        <h4>Don't</h4>
-        <ul>
-          <li>Alter the logo colors or proportions</li>
-          <li>Use low contrast text combinations</li>
-          <li>Place logo on busy backgrounds</li>
-          <li>Stretch or distort brand elements</li>
-          <li>Use unofficial color variations</li>
-        </ul>
+
+      <div class="component-demo">
+        <h3>Badges</h3>
+        <div class="badge-row">
+          <span class="badge badge-action">Action</span>
+          <span class="badge badge-creativity">AI</span>
+          <span class="badge badge-intelligence">Orchestration</span>
+          <span class="badge badge-trust">Infrastructure</span>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <h3>Input</h3>
+        <input type="text" class="input" placeholder="Enter your email" style="width: 100%;">
+      </div>
+
+      <div class="component-demo card-glow">
+        <h3 style="color: var(--br-electric-magenta);">Active Card</h3>
+        <p style="color: var(--br-text-secondary);">This card has the glow effect for selected/active states.</p>
+      </div>
+    </div>
+
+    <!-- Glow Effects -->
+    <h2>Glow Effects</h2>
+    <div class="color-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="card glow-orange" style="text-align: center; padding: 2rem;">
+        <span style="color: var(--br-sunrise); font-weight: 600;">Orange</span>
+      </div>
+      <div class="card glow-pink" style="text-align: center; padding: 2rem;">
+        <span style="color: var(--br-hot-pink); font-weight: 600;">Pink</span>
+      </div>
+      <div class="card glow-purple" style="text-align: center; padding: 2rem;">
+        <span style="color: var(--br-vivid-purple); font-weight: 600;">Purple</span>
+      </div>
+      <div class="card glow-blue" style="text-align: center; padding: 2rem;">
+        <span style="color: var(--br-cyber-blue); font-weight: 600;">Blue</span>
       </div>
     </div>
   </div>
 
-  <div class="toast" id="toast">Copied to clipboard!</div>
-
-  <script>
-    function copyColor(hex) {
-      navigator.clipboard.writeText(hex);
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-  </script>
+  <footer>
+    <p>BlackRoad OS Brand System &middot; <a href="https://blackroad.io">blackroad.io</a></p>
+    <p style="margin-top: 0.5rem; font-size: 0.875rem;">Import: <code style="background: var(--br-charcoal); padding: 0.25rem 0.5rem; border-radius: 4px;">@import url('https://brand.blackroad.io/css/brand.css');</code></p>
+  </footer>
 </body>
 </html>
