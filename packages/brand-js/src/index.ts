@@ -16,14 +16,14 @@ const resolveTarget = (target?: HTMLElement) => {
 
 const surfaceTokens = {
   light: {
-    '--br-surface': 'var(--br-color-neutral-50)',
-    '--br-text': 'var(--br-color-neutral-900)',
-    '--br-surface-inverse': 'var(--br-color-neutral-900)',
+    '--br-surface': 'var(--br-color-neutral-white)',
+    '--br-text': 'var(--br-color-neutral-black)',
+    '--br-surface-inverse': 'var(--br-color-neutral-black)',
   },
   dark: {
-    '--br-surface': 'var(--br-color-neutral-900)',
-    '--br-text': 'var(--br-color-neutral-50)',
-    '--br-surface-inverse': 'var(--br-color-neutral-50)',
+    '--br-surface': 'var(--br-color-neutral-black)',
+    '--br-text': 'var(--br-color-neutral-white)',
+    '--br-surface-inverse': 'var(--br-color-neutral-white)',
   },
 };
 

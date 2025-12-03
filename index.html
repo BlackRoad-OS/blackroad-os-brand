@@ -6,6 +6,24 @@
   <title>Brand System | BlackRoad OS</title>
   <link rel="stylesheet" href="css/brand.css">
   <style>
+    :root {
+      --br-surface-elevated: var(--br-color-neutral-deepBlack);
+      --br-surface-card: var(--br-color-neutral-charcoal);
+      --br-text-primary: var(--br-color-neutral-white);
+      --br-text-secondary: rgba(255, 255, 255, 0.75);
+      --br-text-muted: rgba(255, 255, 255, 0.55);
+      --br-gradient-brand-horizontal: linear-gradient(90deg, #FF9D00 0%, #FF6B00 50%, #FF0066 100%);
+      --br-gradient-os: var(--br-color-gradient-os);
+      --br-gradient-brand: var(--br-color-gradient-brand);
+      --br-cyber-blue: var(--br-color-neon-cyberBlue);
+      --br-electric-magenta: var(--br-color-neon-electricMagenta);
+      --br-sunrise: var(--br-color-neon-sunrise);
+      --br-hot-pink: var(--br-color-neon-hotPink);
+      --br-vivid-purple: var(--br-color-neon-vividPurple);
+      --br-charcoal: var(--br-color-neutral-charcoal);
+      --br-deep-black: var(--br-color-neutral-deepBlack);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     .header {
@@ -101,10 +119,10 @@
       font-weight: 600;
     }
 
-    .color-swatch.dark-text { color: var(--br-black); }
-    .color-swatch.dark-text::before { color: var(--br-black); }
-    .color-swatch.light-text { color: var(--br-white); }
-    .color-swatch.light-text::before { color: var(--br-white); }
+    .color-swatch.dark-text { color: var(--br-color-neutral-black); }
+    .color-swatch.dark-text::before { color: var(--br-color-neutral-black); }
+    .color-swatch.light-text { color: var(--br-color-neutral-white); }
+    .color-swatch.light-text::before { color: var(--br-color-neutral-white); }
 
     /* Gradient Swatches */
     .gradient-grid {
@@ -225,29 +243,30 @@
     <!-- Neon Spectrum -->
     <h2>Neon Spectrum</h2>
     <div class="color-grid">
-      <div class="color-swatch dark-text" style="background: var(--br-sunrise);" data-name="Sunrise">#FF9D00</div>
-      <div class="color-swatch dark-text" style="background: var(--br-warm-orange);" data-name="Warm Orange">#FF6B00</div>
-      <div class="color-swatch light-text" style="background: var(--br-hot-pink);" data-name="Hot Pink">#FF0066</div>
-      <div class="color-swatch light-text" style="background: var(--br-electric-magenta);" data-name="Electric Magenta">#FF006B</div>
-      <div class="color-swatch light-text" style="background: var(--br-deep-magenta);" data-name="Deep Magenta">#D600AA</div>
-      <div class="color-swatch light-text" style="background: var(--br-vivid-purple);" data-name="Vivid Purple">#7700FF</div>
-      <div class="color-swatch light-text" style="background: var(--br-cyber-blue);" data-name="Cyber Blue">#0066FF</div>
+      <div class="color-swatch dark-text" style="background: var(--br-color-neon-sunrise);" data-name="Sunrise">#FF9D00</div>
+      <div class="color-swatch dark-text" style="background: var(--br-color-neon-warmOrange);" data-name="Warm Orange">#FF6B00</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neon-hotPink);" data-name="Hot Pink">#FF0066</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neon-electricMagenta);" data-name="Electric Magenta">#FF006B</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neon-deepMagenta);" data-name="Deep Magenta">#D600AA</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neon-vividPurple);" data-name="Vivid Purple">#7700FF</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neon-cyberBlue);" data-name="Cyber Blue">#0066FF</div>
     </div>
 
     <!-- Neutrals -->
     <h2>Neutrals</h2>
     <div class="color-grid">
-      <div class="color-swatch light-text" style="background: var(--br-black); border: 1px solid rgba(255,255,255,0.2);" data-name="Pure Black">#000000</div>
-      <div class="color-swatch light-text" style="background: var(--br-deep-black);" data-name="Deep Black">#0A0A0A</div>
-      <div class="color-swatch light-text" style="background: var(--br-charcoal);" data-name="Charcoal">#1A1A1A</div>
-      <div class="color-swatch dark-text" style="background: var(--br-white);" data-name="Pure White">#FFFFFF</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neutral-black); border: 1px solid rgba(255,255,255,0.2);" data-name="Pure Black">#000000</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neutral-deepBlack);" data-name="Deep Black">#050505</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neutral-charcoal);" data-name="Charcoal">#0D0D0D</div>
+      <div class="color-swatch light-text" style="background: var(--br-color-neutral-slate);" data-name="Slate">#141414</div>
+      <div class="color-swatch dark-text" style="background: var(--br-color-neutral-white);" data-name="Pure White">#FFFFFF</div>
     </div>
 
     <!-- Gradients -->
     <h2>Gradients</h2>
     <div class="gradient-grid">
-      <div class="gradient-swatch" style="background: var(--br-gradient-brand);">Brand Gradient</div>
-      <div class="gradient-swatch" style="background: var(--br-gradient-os);">OS Gradient</div>
+      <div class="gradient-swatch" style="background: var(--br-color-gradient-brand);">Brand Gradient</div>
+      <div class="gradient-swatch" style="background: var(--br-color-gradient-os);">OS Gradient</div>
     </div>
 
     <!-- Typography -->

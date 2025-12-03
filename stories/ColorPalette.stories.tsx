@@ -4,10 +4,14 @@ import { tokens } from '../packages/brand-js/src';
 
 const Palette = () => {
   const swatches = [
-    { name: 'Accent Pink', token: '--br-color-accent-pink', value: tokens.color.accent.pink },
-    { name: 'Accent Electric', token: '--br-color-accent-electric', value: tokens.color.accent.electric },
-    { name: 'Neutral 900', token: '--br-color-neutral-900', value: tokens.color.neutral['900'] },
-    { name: 'Neutral 50', token: '--br-color-neutral-50', value: tokens.color.neutral['50'] },
+    { name: 'Sunrise', token: '--br-color-neon-sunrise', value: tokens.color.neon.sunrise },
+    { name: 'Hot Pink', token: '--br-color-neon-hotPink', value: tokens.color.neon.hotPink },
+    { name: 'Electric Magenta', token: '--br-color-neon-electricMagenta', value: tokens.color.neon.electricMagenta },
+    { name: 'Vivid Purple', token: '--br-color-neon-vividPurple', value: tokens.color.neon.vividPurple },
+    { name: 'Cyber Blue', token: '--br-color-neon-cyberBlue', value: tokens.color.neon.cyberBlue },
+    { name: 'Charcoal', token: '--br-color-neutral-charcoal', value: tokens.color.neutral.charcoal },
+    { name: 'Slate', token: '--br-color-neutral-slate', value: tokens.color.neutral.slate },
+    { name: 'White', token: '--br-color-neutral-white', value: tokens.color.neutral.white },
   ];
 
   return (
