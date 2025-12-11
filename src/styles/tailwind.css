@@ -28,6 +28,6 @@
   .br-pill {
     @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium;
     background: linear-gradient(120deg, var(--br-color-neon-hotPink), var(--br-color-neon-electricMagenta));
-    color: #0a0a0a;
+    color: var(--br-color-neutral-charcoal);
   }
 }
