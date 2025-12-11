@@ -12,8 +12,8 @@
 
   body {
     @apply font-body antialiased;
-    background: radial-gradient(circle at 10% 20%, rgba(255, 79, 216, 0.05), transparent 30%),
-      radial-gradient(circle at 80% 0%, rgba(0, 255, 239, 0.05), transparent 30%),
+    background: radial-gradient(circle at 10% 20%, rgba(var(--br-color-neon-hotPink-rgb, 255, 79, 216), 0.05), transparent 30%),
+      radial-gradient(circle at 80% 0%, rgba(var(--br-color-neon-cyberBlue-rgb, 0, 255, 239), 0.05), transparent 30%),
       var(--br-surface, var(--br-color-neutral-white));
     color: var(--br-text, var(--br-color-neutral-black));
   }
