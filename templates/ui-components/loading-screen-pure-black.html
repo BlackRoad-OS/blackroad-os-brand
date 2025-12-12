@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackRoad OS · Loading Screen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Core neutrals from the kit */
+      --pure-black: #000000;
+      --deep-black: #0a0a0a;
+      --surface: #050505;
+      --border: #262626;
+
+      /* Text */
+      --text: #f9fafb;
+      --text-muted: #a3a3a3;
+
+      /* Brand palette */
+      --br-sunrise-orange: #ff9d00;
+      --br-warm-orange: #ff6b00;
+      --br-hot-pink: #ff0066;
+      --br-electric-magenta: #ff006b;
+      --br-deep-magenta: #d600aa;
+      --br-vivid-purple: #7700ff;
+      --br-cyber-blue: #0066ff;
+
+      --radius-card: 24px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--pure-black);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .shell {
+      background-color: var(--deep-black);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
+      padding: 3rem 4rem;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    .logo-mark {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.5rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(120deg, var(--br-sunrise-orange), var(--br-hot-pink), var(--br-vivid-purple), var(--br-cyber-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 32px rgba(255, 0, 102, 0.4);
+    }
+
+    .logo-mark span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+      background-image: linear-gradient(
+        120deg,
+        #FF9D00,
+        #FF0066,
+        #7700FF,
+        #0066FF
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .loader {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .loader-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--br-hot-pink);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    .loader-dot:nth-child(1) { animation-delay: 0s; }
+    .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+      }
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(120deg, var(--br-sunrise-orange), var(--br-hot-pink), var(--br-vivid-purple));
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 0, 102, 0.35);
+    }
+
+    .footer-meta {
+      margin-top: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .footer-meta a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+
+    .footer-meta a:hover {
+      border-bottom-color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="logo-mark">
+      <span>BR</span>
+    </div>
+    <h1 class="logo-text">BlackRoad OS</h1>
+    <p class="tagline">Autonomous Agent Infrastructure</p>
+
+    <div class="loader">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+    </div>
+
+    <div class="status-pill">Coming Soon</div>
+
+    <div class="footer-meta">
+      <a href="https://blackroad.io">blackroad.io</a> · <a href="https://blackroadinc.us">BlackRoad Inc.</a>
+    </div>
+  </div>
+</body>
+</html>

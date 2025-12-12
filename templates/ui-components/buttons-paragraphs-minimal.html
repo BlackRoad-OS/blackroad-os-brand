@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackRoad OS — Buttons & Paragraphs (Minimal)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #000000;
+      --surface: #050505;
+      --border: #2e2e2e;
+      --text: #ffffff;
+      --text-muted: #d4d4d4;
+
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 140ms ease-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .page-header {
+      margin-bottom: 2.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .title-lockup h1 {
+      font-size: 2.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .title-lockup p {
+      margin-top: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 44rem;
+    }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: #050505;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.6rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .section {
+      margin-top: 1.2rem;
+    }
+
+    .section:first-of-type {
+      margin-top: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    /* BUTTONS ------------------------------------------------ */
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      border-width: 1px;
+      border-style: solid;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color var(--transition-fast),
+                  color var(--transition-fast),
+                  border-color var(--transition-fast),
+                  transform var(--transition-fast),
+                  box-shadow var(--transition-fast);
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: #000000;
+      color: #ffffff;
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #111111;
+    }
+
+    .btn-ghost {
+      border-color: transparent;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-style: dashed;
+      color: var(--text-muted);
+    }
+
+    .btn-outline:hover {
+      background: #050505;
+      color: #ffffff;
+    }
+
+    .btn-sm {
+      padding: 0.38rem 0.9rem;
+    }
+
+    .btn-lg {
+      padding: 0.7rem 1.6rem;
+      font-size: 0.82rem;
+    }
+
+    .btn-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .btn-icon-left::before {
+      content: '➜';
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      opacity: 0.9;
+    }
+
+    .btn-icon-right::after {
+      content: '↗';
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      opacity: 0.9;
+    }
+
+    .note-row {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* PARAGRAPHS -------------------------------------------- */
+
+    .para-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .para-block {
+      margin-bottom: 1.05rem;
+    }
+
+    .para-body {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      max-width: 56ch;
+    }
+
+    .para-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .para-body a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .para-body a:hover {
+      border-bottom-color: rgba(255, 255, 255, 1);
+    }
+
+    .para-small {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 60ch;
+    }
+
+    .para-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .para-list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+
+    .para-list li {
+      margin-bottom: 0.18rem;
+    }
+
+    .preview-card {
+      margin-top: 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #000000;
+      padding: 1rem 1.1rem;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .preview-header span.meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .preview-header span.chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+    }
+
+    .preview-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .preview-body {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+      max-width: 56ch;
+    }
+
+    .preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 1.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.1rem;
+      }
+
+      .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .title-lockup h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <div class="title-lockup">
+        <h1>BlackRoad OS · Buttons & Copy</h1>
+        <p>
+          Minimal, white-on-black buttons and paragraph styles. No gradients, no glow—just the
+          clean system that sits under the neon when you turn the lights down.
+        </p>
+      </div>
+      <div>
+        <div class="badge">/brand/ui/buttons-copy-minimal</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- LEFT: BUTTONS -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Buttons</h2>
+          <span class="card-tag">Primary · Secondary · Ghost</span>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Primary actions</h3>
+          <div class="row">
+            <button class="btn btn-primary btn-lg btn-icon-left"><span class="label">Get started</span></button>
+            <button class="btn btn-primary"><span class="label">Open prism console</span></button>
+            <button class="btn btn-primary btn-sm btn-icon-right"><span class="label">View map</span></button>
+          </div>
+          <div class="note-row">Use for the single main CTA in a region. White button on black.</div>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Secondary & ghost</h3>
+          <div class="row">
+            <button class="btn btn-secondary"><span class="label">View docs</span></button>
+            <button class="btn btn-secondary btn-sm"><span class="label">Learn more</span></button>
+            <button class="btn btn-ghost btn-sm"><span class="label">Maybe later</span></button>
+          </div>
+          <div class="note-row">Secondary stays monochrome. Ghost is low-commitment and subtle.</div>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Outline & disabled</h3>
+          <div class="row">
+            <button class="btn btn-outline btn-sm"><span class="label">/learn/research</span></button>
+            <button class="btn btn-outline"><span class="label">View architecture</span></button>
+            <button class="btn btn-secondary btn-sm btn-disabled"><span class="label">Coming soon</span></button>
+          </div>
+          <div class="note-row">Outline is for paths/filters. Disabled removes hover, glow, and contrast.</div>
+        </div>
+      </section>
+
+      <!-- RIGHT: PARAGRAPHS -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Paragraphs</h2>
+          <span class="card-tag">Body · Small · Meta</span>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Body copy</h3>
+          <div class="para-block">
+            <div class="para-label">Standard body</div>
+            <p class="para-body">
+              BlackRoad OS treats every project as a <strong>road</strong>. The typography underneath is
+              quiet: white and soft grey on pure black, with a comfortable line length so you can
+              actually read what the interface is saying.
+            </p>
+          </div>
+
+          <div class="para-block">
+            <div class="para-label">Body with link</div>
+            <p class="para-body">
+              When we point to a surface, we link once and move on. Example:
+              <a href="#">view the architecture map</a> instead of pasting the full URL into the copy.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Small & meta</h3>
+          <div class="para-block">
+            <div class="para-label">Small helper</div>
+            <p class="para-small">
+              Use small text for helper lines under inputs, short disclaimers, and light guidance in
+              cards. If it feels like a whisper, the size is probably right.
+            </p>
+          </div>
+
+          <div class="para-block">
+            <div class="para-label">Meta line</div>
+            <p class="para-meta">blackroad.systems/docs · architecture · agents · SDKs</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Lists</h3>
+          <div class="para-block">
+            <div class="para-label">Bulleted list</div>
+            <ul class="para-list">
+              <li>Sentence case for normal copy.</li>
+              <li>All caps reserved for labels, nav, and chips.</li>
+              <li>Never mix more than two sizes inside one card.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Preview</h3>
+          <div class="preview-card">
+            <div class="preview-header">
+              <span class="meta">blackroad.io · hero</span>
+              <span class="chip">white on black</span>
+            </div>
+            <div class="preview-title">One OS for all your roads</div>
+            <p class="preview-body">
+              Ship video, code, and ops from a single interface. Buttons lead, paragraphs explain.
+              No extra color required.
+            </p>
+            <div class="preview-actions">
+              <button class="btn btn-primary btn-icon-left"><span class="label">Get started</span></button>
+              <button class="btn btn-secondary btn-sm"><span class="label">View docs</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
