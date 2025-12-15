@@ -4,9 +4,10 @@ export type ColorSwatchProps = {
   name: string;
   value: string;
   description?: string;
+  token?: string;
 };
 
-export const ColorSwatch: React.FC<ColorSwatchProps> = ({ name, value, description }) => {
+export const ColorSwatch: React.FC<ColorSwatchProps> = ({ name, value, description, token }) => {
   return (
     <div
       style={{
@@ -44,6 +45,18 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ name, value, descripti
             {value}
           </code>
         </div>
+        {token ? (
+          <div
+            style={{
+              marginTop: 'var(--br-spacing-4, 0.25rem)',
+              color: 'var(--br-color-neutral-500, #8b8ca3)',
+              fontFamily: 'var(--br-typography-font-mono, "JetBrains Mono", monospace)',
+              fontSize: '0.8rem',
+            }}
+          >
+            {token}
+          </div>
+        ) : null}
         {description ? (
           <p
             style={{
