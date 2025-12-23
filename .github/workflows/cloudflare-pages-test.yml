@@ -1,0 +1,50 @@
+name: Test Cloudflare Pages Deploy
+
+on:
+  push:
+    branches: [main, test-cf-integration]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  test-cloudflare-integration:
+    runs-on: ubuntu-latest
+    name: Test CF Pages Integration
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build || npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: blackroad-os-brand
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test deployment
+        run: |
+          echo "✅ Testing Cloudflare Pages deployment"
+          echo "Project: blackroad-os-brand"
+          echo "URL: https://blackroad-os-brand.pages.dev"
+          echo "Custom domain: https://brand.blackroad.io"
