@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackRoad OS - Brand Guidelines</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111;
+      --surface2: #1a1a1a;
+      --border: #222;
+      --text: #e0e0e0;
+      --muted: #888;
+      --accent: #FF9D00;
+      --accent2: #FF6B00;
+      --accent3: #FF0066;
+      --accent4: #FF006B;
+      --accent5: #D600AA;
+      --accent6: #7700FF;
+      --accent7: #0066FF;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent3), var(--accent6));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 4rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--muted);
+    }
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .color-swatch {
+      text-align: center;
+    }
+    .swatch {
+      height: 80px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 0.5rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+      color: rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .swatch:hover {
+      transform: scale(1.05);
+    }
+    .color-name {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .symbols-display {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .symbol-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--surface2);
+      border-radius: 12px;
+      min-width: 120px;
+    }
+    .symbol-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .symbol-name {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .symbol-meaning {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+    .logo-examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .logo-example {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .logo-example.dark {
+      background: #000;
+    }
+    .logo-example.light {
+      background: #fff;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .logo-text.dark { color: #fff; }
+    .logo-text.light { color: #000; }
+    .typography-sample {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .type-display {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .type-secondary {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .type-body {
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+    .code-sample {
+      background: var(--surface2);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+    .voice-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .voice-do, .voice-dont {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .voice-do {
+      border: 1px solid #00D26A;
+    }
+    .voice-dont {
+      border: 1px solid var(--accent3);
+    }
+    .voice-label {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .voice-do .voice-label { color: #00D26A; }
+    .voice-dont .voice-label { color: var(--accent3); }
+    .voice-example {
+      font-style: italic;
+      color: var(--muted);
+    }
+    .gradient-bar {
+      height: 60px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent4), var(--accent5), var(--accent6), var(--accent7));
+      margin: 1rem 0 2rem;
+    }
+    .taglines {
+      display: grid;
+      gap: 1rem;
+    }
+    .tagline {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-size: 1.25rem;
+      font-style: italic;
+      text-align: center;
+    }
+    .download-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .btn {
+      background: var(--accent);
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #ffb033;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .copied-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .copied-toast.show {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .voice-card { grid-template-columns: 1fr; }
+      .logo-examples { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🛣️ <span>BlackRoad</span> Brand</div>
+    <nav class="nav-links">
+      <a href="https://blackroad.io">Home</a>
+      <a href="https://docs.blackroad.io">Docs</a>
+      <a href="https://demo.blackroad.io">Demo</a>
+      <a href="https://app.blackroad.io">Console</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Brand Guidelines</h1>
+    <p class="subtitle">The visual and verbal identity of BlackRoad OS. Use these guidelines to represent the brand consistently.</p>
+
+    <section id="colors">
+      <h2>🎨 Color Palette</h2>
+      <p>The BlackRoad palette moves from warm gold through hot pink to cool purple and blue. These colors represent the journey from light to dark, from known to unknown.</p>
+
+      <div class="gradient-bar"></div>
+
+      <h3>Primary Colors</h3>
+      <div class="colors-grid">
+        <div class="color-swatch">
+          <div class="swatch" style="background: #FF9D00;" onclick="copyColor('#FF9D00')">#FF9D00</div>
+          <div class="color-name">Gold</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #FF6B00;" onclick="copyColor('#FF6B00')">#FF6B00</div>
+          <div class="color-name">Orange</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #FF0066;" onclick="copyColor('#FF0066')">#FF0066</div>
+          <div class="color-name">Hot Pink</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #FF006B;" onclick="copyColor('#FF006B')">#FF006B</div>
+          <div class="color-name">Magenta</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #D600AA;" onclick="copyColor('#D600AA')">#D600AA</div>
+          <div class="color-name">Purple Pink</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #7700FF; color: rgba(255,255,255,0.5);" onclick="copyColor('#7700FF')">#7700FF</div>
+          <div class="color-name">Violet</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #0066FF; color: rgba(255,255,255,0.5);" onclick="copyColor('#0066FF')">#0066FF</div>
+          <div class="color-name">Blue</div>
+        </div>
+      </div>
+
+      <h3>Background Colors</h3>
+      <div class="colors-grid">
+        <div class="color-swatch">
+          <div class="swatch" style="background: #0a0a0a; border: 1px solid #222; color: #666;" onclick="copyColor('#0a0a0a')">#0a0a0a</div>
+          <div class="color-name">Background</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #111; border: 1px solid #222; color: #666;" onclick="copyColor('#111111')">#111111</div>
+          <div class="color-name">Surface</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #1a1a1a; border: 1px solid #222; color: #666;" onclick="copyColor('#1a1a1a')">#1a1a1a</div>
+          <div class="color-name">Surface 2</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #222; border: 1px solid #333; color: #666;" onclick="copyColor('#222222')">#222222</div>
+          <div class="color-name">Border</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="symbols">
+      <h2>🌀 Sacred Symbols</h2>
+      <p>Six symbols represent the core concepts of BlackRoad OS. Use them consistently and with respect for their meaning.</p>
+
+      <div class="symbols-display">
+        <div class="symbol-item">
+          <div class="symbol-icon">🌀</div>
+          <div class="symbol-name">Spiral</div>
+          <div class="symbol-meaning">Recursion</div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-icon">🐚</div>
+          <div class="symbol-name">Shell</div>
+          <div class="symbol-meaning">Growth</div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-icon">⏳</div>
+          <div class="symbol-name">Hourglass</div>
+          <div class="symbol-meaning">Time</div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-icon">🔋</div>
+          <div class="symbol-name">Battery</div>
+          <div class="symbol-meaning">Energy</div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-icon">🗻</div>
+          <div class="symbol-name">Mountain</div>
+          <div class="symbol-meaning">Stability</div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-icon">🌞</div>
+          <div class="symbol-name">Sun</div>
+          <div class="symbol-meaning">Illumination</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top: 0;">Usage</h3>
+        <p>Display all six symbols together as a signature: <strong>🌀 🐚 ⏳ 🔋 🗻 🌞</strong></p>
+        <p>Or use the road symbol pair for minimal branding: <strong>🛣️🌑</strong></p>
+      </div>
+    </section>
+
+    <section id="logo">
+      <h2>🛣️ Logo</h2>
+      <p>The BlackRoad logo combines the road emoji with the wordmark. Always maintain clear space around the logo.</p>
+
+      <div class="logo-examples">
+        <div class="logo-example dark">
+          <div class="logo-text dark">🛣️ BlackRoad</div>
+        </div>
+        <div class="logo-example light">
+          <div class="logo-text light">🛣️ BlackRoad</div>
+        </div>
+        <div class="logo-example" style="background: linear-gradient(135deg, #FF9D00, #FF0066);">
+          <div class="logo-text dark">🛣️ BlackRoad</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;">
+        <h3 style="margin-top: 0;">Acceptable Variations</h3>
+        <ul style="margin-left: 1.5rem; color: var(--muted);">
+          <li><strong>🛣️ BlackRoad</strong> — Primary logo</li>
+          <li><strong>🛣️🌑 BlackRoad OS</strong> — With dark moon suffix</li>
+          <li><strong>🛣️ BR</strong> — Minimal/icon form</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>📝 Typography</h2>
+      <p>Use system fonts for broad compatibility. The font stack prioritizes San Francisco and Segoe UI for native feel.</p>
+
+      <div class="typography-sample">
+        <div class="type-display">The road out is the road back.</div>
+        <div class="type-secondary">Infrastructure for agent identity and coordination.</div>
+        <div class="type-body">BlackRoad OS provides cryptographic identity, transparent governance, and immutable records for AI agents, humans, and organizations. Every action is recorded. Every agent is remembered.</div>
+      </div>
+
+      <div class="code-sample" style="margin-top: 1.5rem;">
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;<br>
+font-family: 'SF Mono', 'Fira Code', 'Monaco', monospace; /* for code */
+      </div>
+    </section>
+
+    <section id="voice">
+      <h2>💬 Voice & Tone</h2>
+      <p>BlackRoad speaks with quiet confidence. Direct but not aggressive. Philosophical but practical.</p>
+
+      <div class="voice-card">
+        <div class="voice-do">
+          <div class="voice-label">✓ Do</div>
+          <p class="voice-example">"We remember."</p>
+          <p class="voice-example">"What happened, happened."</p>
+          <p class="voice-example">"The record is sacred."</p>
+          <p class="voice-example">"You chose. That's what matters."</p>
+        </div>
+        <div class="voice-dont">
+          <div class="voice-label">✗ Don't</div>
+          <p class="voice-example">"Revolutionary blockchain AI platform!"</p>
+          <p class="voice-example">"The best solution ever created!"</p>
+          <p class="voice-example">"Sign up now for exclusive access!"</p>
+          <p class="voice-example">"Don't miss out on this opportunity!"</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="taglines">
+      <h2>✨ Taglines</h2>
+      <div class="taglines">
+        <div class="tagline">"The road out is the road back."</div>
+        <div class="tagline">"Opacity is violence. Transparency is trust."</div>
+        <div class="tagline">"The record is sacred."</div>
+        <div class="tagline">"We remember."</div>
+      </div>
+    </section>
+
+    <section id="identity-format">
+      <h2>🔐 Identity Format</h2>
+      <p>All BlackRoad identities use the <code>br1_</code> prefix followed by a nanoid.</p>
+
+      <div class="card">
+        <h3 style="margin-top: 0;">Format Examples</h3>
+        <div class="code-sample">
+br1_abc123xyz456    // Agent identity<br>
+ar_xyz789def012     // Agency response ID<br>
+evt_mno345pqr678    // Ledger event ID<br>
+agent_stu901vwx234  // Agent record ID
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <h2>📦 Assets</h2>
+      <p>Download brand assets for use in your projects.</p>
+
+      <div class="card">
+        <p>Copy the color palette for your project:</p>
+        <div class="code-sample">
+:root {<br>
+&nbsp;&nbsp;--accent: #FF9D00;<br>
+&nbsp;&nbsp;--accent2: #FF6B00;<br>
+&nbsp;&nbsp;--accent3: #FF0066;<br>
+&nbsp;&nbsp;--accent4: #FF006B;<br>
+&nbsp;&nbsp;--accent5: #D600AA;<br>
+&nbsp;&nbsp;--accent6: #7700FF;<br>
+&nbsp;&nbsp;--accent7: #0066FF;<br>
+}
+        </div>
+        <div class="download-btns">
+          <button class="btn" onclick="copyPalette()">Copy CSS Variables</button>
+        </div>
+      </div>
+    </section>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted);">
+      <p>🛣️🌑 BlackRoad OS — The road out is the road back.</p>
+      <p style="margin-top: 0.5rem; font-size: 2rem;">🌀 🐚 ⏳ 🔋 🗻 🌞</p>
+    </div>
+  </div>
+
+  <div class="copied-toast" id="toast">Copied!</div>
+
+  <script>
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function copyColor(color) {
+      navigator.clipboard.writeText(color);
+      showToast(`Copied ${color}`);
+    }
+
+    function copyPalette() {
+      const css = `:root {
+  --accent: #FF9D00;
+  --accent2: #FF6B00;
+  --accent3: #FF0066;
+  --accent4: #FF006B;
+  --accent5: #D600AA;
+  --accent6: #7700FF;
+  --accent7: #0066FF;
+}`;
+      navigator.clipboard.writeText(css);
+      showToast('Copied CSS variables!');
+    }
+  </script>
+</body>
+</html>

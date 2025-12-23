@@ -1,12 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap');
 :root {
-  --br-color-accent-pink: #ff4fd8;
-  --br-color-accent-electric: #00ffef;
-  --br-color-neutral-50: #fafafa;
-  --br-color-neutral-900: #0a0a0a;
+  /* Surfaces */
+  --br-bg: #000000;
+  --br-surface: #050505;
+  --br-surface-2: #0a0a0a;
+  --br-border: #262626;
+
+  /* Text */
+  --br-text: #f9fafb;
+  --br-text-muted: #a3a3a3;
+
+  /* Brand palette */
+  --br-sunrise-orange: #ff9d00;
+  --br-warm-orange: #ff6b00;
+  --br-hot-pink: #ff0066;
+  --br-electric-magenta: #ff006b;
+  --br-deep-magenta: #d600aa;
+  --br-vivid-purple: #7700ff;
+  --br-cyber-blue: #0066ff;
+
+  /* Legacy aliases */
+  --br-color-accent-pink: var(--br-hot-pink);
+  --br-color-accent-electric: var(--br-cyber-blue);
+  --br-color-neutral-50: var(--br-text);
+  --br-color-neutral-900: var(--br-bg);
+
+  /* Spacing */
   --br-radius-xs: 2px;
   --br-radius-md: 6px;
+  --br-radius-lg: 12px;
   --br-radius-xl: 16px;
-  --br-font-display: 'Inter Tight', sans-serif;
-  --br-font-body: 'Inter', sans-serif;
+  --br-radius-2xl: 18px;
+  --br-radius-full: 999px;
+
+  /* Typography */
+  --br-font-display: 'DM Sans', sans-serif;
+  --br-font-body: 'DM Sans', sans-serif;
+  --br-font-mono: 'JetBrains Mono', monospace;
+
+  /* Gradients */
+  --br-gradient-main: linear-gradient(120deg, var(--br-sunrise-orange), var(--br-hot-pink), var(--br-vivid-purple));
+  --br-gradient-cool: linear-gradient(120deg, var(--br-cyber-blue), var(--br-vivid-purple), var(--br-electric-magenta));
+  --br-gradient-warm: linear-gradient(120deg, var(--br-sunrise-orange), var(--br-warm-orange), var(--br-hot-pink));
+
+  /* Shadows */
+  --br-shadow-glow-pink: 0 0 24px rgba(255, 0, 102, 0.45);
+  --br-shadow-glow-purple: 0 0 24px rgba(119, 0, 255, 0.45);
+  --br-shadow-glow-blue: 0 0 24px rgba(0, 102, 255, 0.45);
+  --br-shadow-card: 0 14px 32px rgba(0, 0, 0, 0.9);
 }

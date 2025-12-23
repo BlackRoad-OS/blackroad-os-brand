@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
   pages: write
@@ -27,47 +23,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-        uses: actions/checkout@f43a3398dc5d8737c2dbc7bf8ad6b50918d7a3d4
       - name: Setup Node
-        uses: actions/setup-node@b829d2ab59ffb3738572edf3c6dbd9bfebc477f1
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint --if-present
-
-      - name: Type check
-        run: npm run type-check --if-present
-
-      - name: Build
-        run: npm run build --if-present
-
-      - name: Test
-        run: npm test --if-present
           node-version: 20
           cache: 'pnpm'
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile=false
+
       - name: Generate tokens
         run: pnpm run tokens
+
       - name: Lint TypeScript
         run: pnpm run lint:ts
+
       - name: Lint CSS
         run: pnpm run lint:css
+
       - name: Validate SVGs
         run: pnpm run lint:svg
+
       - name: Validate tokens
         run: pnpm run lint:tokens
+
       - name: Build Storybook
         run: pnpm run build:docs
+
       - name: Upload Storybook artifact
         uses: actions/upload-pages-artifact@v3
         with:
