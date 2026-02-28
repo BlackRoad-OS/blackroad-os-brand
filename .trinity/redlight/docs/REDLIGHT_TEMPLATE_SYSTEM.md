@@ -553,12 +553,11 @@ All RedLight templates include:
 
 ## **LICENSE**
 
-All RedLight templates are:
-- **Open Source** (MIT License)
-- **Free to use** (commercial & personal)
-- **Customizable** (modify freely)
-- **Attribution appreciated** (not required)
+All RedLight templates are proprietary assets of BlackRoad OS and are **not** open source.
 
+Use, redistribution, and modification of these templates are governed exclusively by the repository’s primary license or an applicable written agreement; this document does not grant any rights by itself.
+
+For the authoritative and up-to-date terms, see the project [LICENSE](../../../LICENSE) file at the root of this repository or your applicable licensing agreement.
 ---
 
 ## **THE TRINITY**
