@@ -105,13 +105,40 @@ jobs:
         id: cloudflare-pages
         run: |
           npm install -g wrangler
-          if [ -d "dist" ]; then OUTPUT_DIR="dist"
-          elif [ -d "build" ]; then OUTPUT_DIR="build"
-          elif [ -d "out" ]; then OUTPUT_DIR="out"
-          elif [ -d ".next" ]; then OUTPUT_DIR=".next"
-          elif [ -d "public" ]; then OUTPUT_DIR="public"
-          else OUTPUT_DIR="."; fi
 
+          # Determine the correct output directory for Cloudflare Pages
+          if [ "${{ steps.detect.outputs.framework }}" = "next" ]; then
+            # Prefer Cloudflare's Next-on-Pages output if present
+            if [ -d ".vercel/output/static" ]; then
+              OUTPUT_DIR=".vercel/output/static"
+            elif [ -d "out" ]; then
+              OUTPUT_DIR="out"
+            elif [ -d ".next" ]; then
+              # Fallback: generate a static export from the Next.js build
+              npx next export -o out
+              OUTPUT_DIR="out"
+            elif [ -d "public" ]; then
+              OUTPUT_DIR="public"
+            else
+              # As a last resort, default to public if it exists, otherwise fail explicitly
+              echo "No suitable static output directory found for Next.js; expected .vercel/output/static, out, or public." >&2
+              exit 1
+            fi
+          else
+            # Generic static site detection for non-Next frameworks
+            if [ -d "dist" ]; then
+              OUTPUT_DIR="dist"
+            elif [ -d "build" ]; then
+              OUTPUT_DIR="build"
+            elif [ -d "out" ]; then
+              OUTPUT_DIR="out"
+            elif [ -d "public" ]; then
+              OUTPUT_DIR="public"
+            else
+              # Default to current directory only for non-Next projects
+              OUTPUT_DIR="."
+            fi
+          fi
           PROJECT_NAME="${{ steps.detect.outputs.repo_name }}"
           wrangler pages project create "$PROJECT_NAME" --production-branch main 2>/dev/null || true
 
