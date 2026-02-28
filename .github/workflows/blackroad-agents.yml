@@ -42,6 +42,23 @@ jobs:
               }
             }" || echo "Using fallback AI...")
           
+          # Sanitize and limit the response before posting
+          MAX_LEN=4000
+          if [ -n "$RESPONSE" ]; then
+            # Strip basic HTML tags to reduce the risk of phishing/formatting abuse
+            RESPONSE=$(echo "$RESPONSE" | sed -E 's/<[^>]+>//g')
+            
+            # Optionally escape backticks to avoid confusing markdown/code blocks
+            RESPONSE=${RESPONSE//\`/'}
+            
+            # Enforce maximum length
+            if [ ${#RESPONSE} -gt $MAX_LEN ]; then
+              RESPONSE="${RESPONSE:0:$MAX_LEN}
+...
+[Response truncated for length]"
+            fi
+          fi
+          
           # Post response
           gh issue comment ${{ github.event.issue.number || github.event.pull_request.number }} \
             --body "$RESPONSE" || true
