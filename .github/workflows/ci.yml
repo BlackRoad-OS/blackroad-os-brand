@@ -37,19 +37,19 @@ jobs:
 
       - name: Lint
         if: hashFiles('package.json') != ''
-        run: npm run lint || true
+        run: npm run lint
 
       - name: Type check
         if: hashFiles('tsconfig.json') != ''
-        run: npm run typecheck || npm run type-check || npx tsc --noEmit || true
+        run: npm run typecheck || npm run type-check || npx tsc --noEmit
 
       - name: Test
         if: hashFiles('package.json') != ''
-        run: npm test || true
+        run: npm test
 
       - name: Build
         if: hashFiles('package.json') != ''
-        run: npm run build || true
+        run: npm run build
 
       - name: Upload build artifacts
         if: success() && (hashFiles('dist/**') != '' || hashFiles('build/**') != '')
