@@ -3,427 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Assets | BlackRoad OS</title>
+  <title>BlackRoad — Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --surface2: #151515;
-      --border: #222;
-      --text: #e0e0e0;
-      --text-secondary: #999;
-      --muted: #666;
-      --accent: #FF9D00;
-      --accent2: #FF6B00;
-      --accent3: #FF0066;
-      --accent4: #D600AA;
-      --accent5: #7700FF;
-      --accent6: #0066FF;
+
+    html, body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
     }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
+
+    header {
+      background: #000000;
+      padding: 20px 24px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
+      border-bottom: 1px solid #ffffff;
     }
+
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.05em;
     }
-    .logo span { color: var(--accent); }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    /* Color Palette */
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .color-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .color-card:hover { transform: translateY(-2px); }
-    .color-swatch {
-      height: 100px;
+
+    nav {
+      font-size: 0.65rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
+      gap: 20px;
     }
-    .color-info {
-      padding: 1rem;
-      text-align: center;
+
+    nav a {
+      color: #888888;
+      text-decoration: none;
     }
-    .color-name {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
+
+    nav a:hover { color: #ffffff; }
+
+    .hero {
+      background: #000000;
+      padding: 48px 24px 36px;
+      border-bottom: 1px solid #ffffff;
     }
-    .color-hex {
-      font-family: 'SF Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--muted);
-      cursor: pointer;
+
+    .hero-label {
+      font-size: 0.6rem;
+      color: #555555;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .color-hex:hover { color: var(--accent); }
-    /* Logo Display */
-    .logo-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .logo-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-    }
-    .logo-card.dark { background: var(--surface); }
-    .logo-card.light { background: #fff; }
-    .logo-display {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .logo-display span { color: var(--accent); }
-    .logo-card.light .logo-display { color: #000; }
-    .logo-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .logo-card.light .logo-label { color: #666; }
-    /* Typography */
-    .type-sample {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 1rem;
-    }
-    .type-display {
+
+    .hero h1 {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      color: #ffffff;
+      line-height: 1.05;
     }
-    .type-alphabet {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
+
+    .hero p {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      color: #666666;
+      line-height: 1.9;
     }
-    .type-numbers {
-      font-family: 'SF Mono', monospace;
-      color: var(--muted);
-    }
-    /* Usage Guidelines */
-    .guidelines {
+
+    .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1rem;
+      grid-template-columns: 1fr;
     }
-    .guideline-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
+
+    .section {
+      background: #000000;
+      padding: 32px 24px;
+      border-bottom: 1px solid #ffffff;
     }
-    .guideline-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
+
+    .section-label {
+      font-size: 0.58rem;
+      color: #555555;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 10px;
     }
-    .guideline-card.do h4 { color: #00D26A; }
-    .guideline-card.dont h4 { color: #FF3366; }
-    .guideline-card ul {
-      padding-left: 1.25rem;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #333333;
     }
-    .guideline-card li { margin-bottom: 0.5rem; }
-    /* Gradients */
-    .gradient-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .gradient-card {
-      height: 120px;
-      border-radius: 12px;
+
+    .enterprise-link {
       display: flex;
-      align-items: flex-end;
-      padding: 1rem;
-      font-weight: 600;
-    }
-    .gradient-1 { background: linear-gradient(135deg, #FF9D00, #FF0066); }
-    .gradient-2 { background: linear-gradient(135deg, #FF0066, #7700FF); }
-    .gradient-3 { background: linear-gradient(135deg, #7700FF, #0066FF); }
-    .gradient-4 { background: linear-gradient(135deg, #FF9D00, #FF6B00, #FF0066, #7700FF); }
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
+      flex-direction: column;
+      gap: 6px;
       text-decoration: none;
-      transition: all 0.2s;
+      padding: 14px 16px;
+      border: 1px solid #ffffff;
+      background: #000000;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
+
+    .enterprise-link .name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #ffffff;
     }
-    .btn-primary:hover { background: var(--accent2); }
-    .button-showcase {
+
+    .enterprise-link .url {
+      font-size: 0.58rem;
+      color: #555555;
+      word-break: break-all;
+    }
+
+    .org-list {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      flex-direction: column;
+      gap: 2px;
     }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
+
+    .org-list a {
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      font-size: 0.7rem;
+      color: #aaaaaa;
+      text-decoration: none;
     }
-    .btn-ghost:hover { border-color: var(--accent); }
-    @media (max-width: 768px) {
-      .guidelines { grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
+
+    .org-list a:hover { color: #ffffff; }
+
+    .org-list a .arrow {
+      color: #444444;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-left: 8px;
     }
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      display: none;
-      z-index: 1000;
+
+    .domain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
-    .toast.show { display: block; }
+
+    .domain-item {
+      background: #000000;
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      font-size: 0.7rem;
+      color: #888888;
+    }
+
+    .domain-item:hover { color: #ffffff; }
+
+    .domain-item::before {
+      content: '—';
+      color: #333333;
+      margin-right: 10px;
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: #000000;
+      padding: 20px 24px;
+      border-top: 1px solid #333333;
+      font-size: 0.58rem;
+      color: #444444;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    @media (min-width: 768px) {
+      header { padding: 20px 40px; }
+      .hero { padding: 56px 40px 44px; }
+      .hero h1 { font-size: 2.4rem; }
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .section { padding: 36px 40px; border-right: 1px solid #ffffff; }
+      .section:last-child { border-right: none; }
+      footer { padding: 20px 40px; flex-direction: row; justify-content: space-between; }
+    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo"><span>Black</span>Road</div>
-    <nav style="display: flex; gap: 1rem;">
-      <a href="https://blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Home</a>
-      <a href="https://docs.blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Docs</a>
+
+  <header>
+    <span class="logo">BlackRoad</span>
+    <nav>
+      <a href="#">enterprise</a>
+      <a href="#">orgs</a>
+      <a href="#">domains</a>
+      <a href="#">docs</a>
     </nav>
   </header>
 
-  <div class="container">
-    <h1>Brand Assets</h1>
-    <p class="subtitle">Guidelines and resources for using the BlackRoad brand.</p>
-
-    <h2>Color Palette</h2>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF9D00; color: #000;">Primary</div>
-        <div class="color-info">
-          <div class="color-name">Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF9D00')">#FF9D00</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF6B00; color: #000;">Secondary</div>
-        <div class="color-info">
-          <div class="color-name">Deep Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF6B00')">#FF6B00</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF0066; color: #fff;">Accent</div>
-        <div class="color-info">
-          <div class="color-name">Pink</div>
-          <div class="color-hex" onclick="copyColor('#FF0066')">#FF0066</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF006B; color: #fff;">Accent Alt</div>
-        <div class="color-info">
-          <div class="color-name">Rose</div>
-          <div class="color-hex" onclick="copyColor('#FF006B')">#FF006B</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #D600AA; color: #fff;">Magenta</div>
-        <div class="color-info">
-          <div class="color-name">Magenta</div>
-          <div class="color-hex" onclick="copyColor('#D600AA')">#D600AA</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #7700FF; color: #fff;">Violet</div>
-        <div class="color-info">
-          <div class="color-name">Violet</div>
-          <div class="color-hex" onclick="copyColor('#7700FF')">#7700FF</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0066FF; color: #fff;">Blue</div>
-        <div class="color-info">
-          <div class="color-name">Blue</div>
-          <div class="color-hex" onclick="copyColor('#0066FF')">#0066FF</div>
-        </div>
-      </div>
-    </div>
-
-    <h3>Neutrals</h3>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0a0a0a; color: #fff;">Background</div>
-        <div class="color-info">
-          <div class="color-name">Dark</div>
-          <div class="color-hex" onclick="copyColor('#0a0a0a')">#0a0a0a</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #111111; color: #fff;">Surface</div>
-        <div class="color-info">
-          <div class="color-name">Surface</div>
-          <div class="color-hex" onclick="copyColor('#111111')">#111111</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #222222; color: #fff;">Border</div>
-        <div class="color-info">
-          <div class="color-name">Border</div>
-          <div class="color-hex" onclick="copyColor('#222222')">#222222</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #e0e0e0; color: #000;">Text</div>
-        <div class="color-info">
-          <div class="color-name">Primary Text</div>
-          <div class="color-hex" onclick="copyColor('#e0e0e0')">#e0e0e0</div>
-        </div>
-      </div>
-    </div>
-
-    <h2>Logo</h2>
-    <div class="logo-section">
-      <div class="logo-card dark">
-        <div class="logo-display"><span>Black</span>Road</div>
-        <div class="logo-label">Dark Background</div>
-      </div>
-      <div class="logo-card light">
-        <div class="logo-display"><span style="color: #FF9D00;">Black</span>Road</div>
-        <div class="logo-label">Light Background</div>
-      </div>
-    </div>
-
-    <h2>Gradients</h2>
-    <div class="gradient-grid">
-      <div class="gradient-card gradient-1">Orange → Pink</div>
-      <div class="gradient-card gradient-2">Pink → Violet</div>
-      <div class="gradient-card gradient-3">Violet → Blue</div>
-      <div class="gradient-card gradient-4">Full Spectrum</div>
-    </div>
-
-    <h2>Typography</h2>
-    <div class="type-sample">
-      <div class="type-display">System Font Stack</div>
-      <div class="type-alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-      <div class="type-alphabet">abcdefghijklmnopqrstuvwxyz</div>
-      <div class="type-numbers">0123456789</div>
-    </div>
-    <p style="color: var(--text-secondary);">
-      <strong>Primary:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif<br>
-      <strong>Monospace:</strong> 'SF Mono', 'Fira Code', monospace
-    </p>
-
-    <h2>Buttons</h2>
-    <div class="button-showcase">
-      <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-ghost">Secondary Button</button>
-      <button class="btn btn-primary" disabled style="opacity: 0.5;">Disabled</button>
-    </div>
-
-    <h2>Usage Guidelines</h2>
-    <div class="guidelines">
-      <div class="guideline-card do">
-        <h4>Do</h4>
-        <ul>
-          <li>Use the official color palette</li>
-          <li>Maintain clear space around the logo</li>
-          <li>Use dark backgrounds for primary contexts</li>
-          <li>Apply gradients for emphasis</li>
-          <li>Keep text highly readable</li>
-        </ul>
-      </div>
-      <div class="guideline-card dont">
-        <h4>Don't</h4>
-        <ul>
-          <li>Alter the logo colors or proportions</li>
-          <li>Use low contrast text combinations</li>
-          <li>Place logo on busy backgrounds</li>
-          <li>Stretch or distort brand elements</li>
-          <li>Use unofficial color variations</li>
-        </ul>
-      </div>
-    </div>
+  <div class="hero">
+    <div class="hero-label">Directory v1.0</div>
+    <h1>Infrastructure<br>Index</h1>
+    <p>GitHub enterprise, organizations, and registered domains.</p>
   </div>
 
-  <div class="toast" id="toast">Copied to clipboard!</div>
+  <div class="grid">
 
-  <script>
-    function copyColor(hex) {
-      navigator.clipboard.writeText(hex);
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-  </script>
+    <div class="section">
+      <div class="section-label">github enterprise</div>
+      <a class="enterprise-link" href="https://github.com/enterprises/blackroad-os" target="_blank">
+        <span class="name">blackroad-os</span>
+        <span class="url">github.com/enterprises/blackroad-os</span>
+      </a>
+    </div>
+
+    <div class="section">
+      <div class="section-label">organizations · 15</div>
+      <div class="org-list">
+        <a href="https://github.com/Blackbox-Enterprises" target="_blank">Blackbox-Enterprises<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-AI" target="_blank">BlackRoad-AI<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Archive" target="_blank">BlackRoad-Archive<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Cloud" target="_blank">BlackRoad-Cloud<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Education" target="_blank">BlackRoad-Education<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Foundation" target="_blank">BlackRoad-Foundation<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Gov" target="_blank">BlackRoad-Gov<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Hardware" target="_blank">BlackRoad-Hardware<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Interactive" target="_blank">BlackRoad-Interactive<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Labs" target="_blank">BlackRoad-Labs<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Media" target="_blank">BlackRoad-Media<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-OS" target="_blank">BlackRoad-OS<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Security" target="_blank">BlackRoad-Security<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Studio" target="_blank">BlackRoad-Studio<span class="arrow">↗</span></a>
+        <a href="https://github.com/BlackRoad-Ventures" target="_blank">BlackRoad-Ventures<span class="arrow">↗</span></a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">domains · 19</div>
+      <div class="domain-list">
+        <div class="domain-item">blackboxprogramming.io</div>
+        <div class="domain-item">blackroad.company</div>
+        <div class="domain-item">blackroad.io</div>
+        <div class="domain-item">blackroad.me</div>
+        <div class="domain-item">blackroad.network</div>
+        <div class="domain-item">blackroad.systems</div>
+        <div class="domain-item">blackroadai.com</div>
+        <div class="domain-item">blackroadinc.us</div>
+        <div class="domain-item">blackroadqi.com</div>
+        <div class="domain-item">blackroadquantum.com</div>
+        <div class="domain-item">blackroadquantum.info</div>
+        <div class="domain-item">blackroadquantum.net</div>
+        <div class="domain-item">blackroadquantum.shop</div>
+        <div class="domain-item">blackroadquantum.store</div>
+        <div class="domain-item">lucidia.earth</div>
+        <div class="domain-item">lucidia.studio</div>
+        <div class="domain-item">lucidiaqi.com</div>
+        <div class="domain-item">roadchain.io</div>
+        <div class="domain-item">roadcoin.io</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>BlackRoad OS, Inc. — Delaware C-Corp</span>
+    <span>1 enterprise · 15 orgs · 19 domains</span>
+  </footer>
+
 </body>
 </html>
