@@ -3,427 +3,851 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Assets | BlackRoad OS</title>
+  <title>Design System | BlackRoad OS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111;
-      --surface2: #151515;
-      --border: #222;
-      --text: #e0e0e0;
-      --text-secondary: #999;
-      --muted: #666;
-      --accent: #FF9D00;
-      --accent2: #FF6B00;
-      --accent3: #FF0066;
-      --accent4: #D600AA;
-      --accent5: #7700FF;
-      --accent6: #0066FF;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: #0a0a0a;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 100vw;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
     }
-    .header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #262626; border-radius: 3px; }
+    input::placeholder { color: #525252; }
+
+    /* Gradient Bar */
+    .gradient-bar {
+      height: 2px;
+      background: linear-gradient(90deg, #FF6B2B, #FF2255, #CC00AA, #8844FF, #4488FF, #00D4FF);
+    }
+
+    /* Header */
+    .header { padding: 32px 24px 0; }
+    .header-top {
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
-      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
     }
-    .logo {
-      font-size: 1.5rem;
+    .header-left { min-width: 0; flex: 1; }
+    .header-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #525252;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+    }
+    .header-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 40px;
       font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: #f5f5f5;
+      margin-bottom: 12px;
     }
-    .logo span { color: var(--accent); }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
+    .header-desc {
+      font-size: 13px;
+      color: #737373;
+      max-width: 360px;
+      line-height: 1.5;
     }
-    h1 {
-      font-size: 2.5rem;
+    .header-dots {
+      display: flex;
+      gap: 5px;
+      padding-top: 6px;
+      flex-shrink: 0;
+    }
+    .header-dot {
+      width: 10px;
+      height: 40px;
+      border-radius: 5px;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex;
+      gap: 2px;
+      padding-top: 16px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: #525252;
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.15s ease;
+    }
+    .nav-btn.active {
+      color: #f5f5f5;
+      background: #262626;
+    }
+    .nav-btn:hover:not(.active) {
+      color: #737373;
+    }
+
+    /* Main */
+    main { padding: 36px 24px 72px; }
+
+    /* Sections */
+    .section { margin-bottom: 56px; }
+    .section-header { margin-bottom: 24px; }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #f5f5f5;
+      margin: 0;
+      letter-spacing: -0.02em;
     }
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
+    .section-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #737373;
+      margin: 6px 0 0;
+      line-height: 1.5;
     }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    /* Color Palette */
+
+    /* Color Swatches */
     .color-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
     }
-    .color-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+    .color-swatch { cursor: pointer; }
+    .swatch-color {
+      height: 72px;
+      border-radius: 10px 10px 0 0;
+      position: relative;
       overflow: hidden;
-      transition: transform 0.2s;
     }
-    .color-card:hover { transform: translateY(-2px); }
-    .color-swatch {
-      height: 100px;
-      display: flex;
+    .swatch-copied {
+      position: absolute;
+      inset: 0;
+      display: none;
       align-items: center;
       justify-content: center;
+      background: rgba(0,0,0,0.5);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #fff;
+    }
+    .swatch-copied.show { display: flex; }
+    .swatch-info {
+      background: #171717;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 12px;
+      border: 1px solid #262626;
+      border-top: none;
+    }
+    .swatch-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
       font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 2px;
     }
-    .color-info {
-      padding: 1rem;
-      text-align: center;
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #737373;
     }
-    .color-name {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
+    .swatch-token {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #525252;
+      margin-top: 1px;
     }
-    .color-hex {
-      font-family: 'SF Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .color-hex:hover { color: var(--accent); }
-    /* Logo Display */
-    .logo-section {
+
+    /* Gray Swatches */
+    .gray-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+      gap: 6px;
     }
-    .logo-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
+    .gray-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #525252;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
     }
-    .logo-card.dark { background: var(--surface); }
-    .logo-card.light { background: #fff; }
-    .logo-display {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .logo-display span { color: var(--accent); }
-    .logo-card.light .logo-display { color: #000; }
-    .logo-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .logo-card.light .logo-label { color: #666; }
-    /* Typography */
-    .type-sample {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 1rem;
-    }
-    .type-display {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .type-alphabet {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-    }
-    .type-numbers {
-      font-family: 'SF Mono', monospace;
-      color: var(--muted);
-    }
-    /* Usage Guidelines */
-    .guidelines {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .guideline-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .guideline-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
+    .gray-swatch-color {
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid #262626;
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 4px;
     }
-    .guideline-card.do h4 { color: #00D26A; }
-    .guideline-card.dont h4 { color: #FF3366; }
-    .guideline-card ul {
-      padding-left: 1.25rem;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+    .gray-swatch-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
     }
-    .guideline-card li { margin-bottom: 0.5rem; }
+    .gray-swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: #525252;
+      text-align: center;
+      margin-top: 4px;
+    }
+
     /* Gradients */
     .gradient-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
     }
-    .gradient-card {
-      height: 120px;
-      border-radius: 12px;
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem;
+    .gradient-preview {
+      height: 64px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .gradient-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
       font-weight: 600;
+      color: #d4d4d4;
+      margin-bottom: 3px;
     }
-    .gradient-1 { background: linear-gradient(135deg, #FF9D00, #FF0066); }
-    .gradient-2 { background: linear-gradient(135deg, #FF0066, #7700FF); }
-    .gradient-3 { background: linear-gradient(135deg, #7700FF, #0066FF); }
-    .gradient-4 { background: linear-gradient(135deg, #FF9D00, #FF6B00, #FF0066, #7700FF); }
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      transition: all 0.2s;
+    .gradient-css {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #525252;
+      word-break: break-all;
+      line-height: 1.4;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
+
+    /* Typography */
+    .type-container {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 4px 20px;
     }
-    .btn-primary:hover { background: var(--accent2); }
-    .button-showcase {
+    .type-row {
+      padding: 16px 0;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
     }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
+    .type-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #737373;
     }
-    .btn-ghost:hover { border-color: var(--accent); }
-    @media (max-width: 768px) {
-      .guidelines { grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
+    .type-spec {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #525252;
     }
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      padding: 0.75rem 1.5rem;
+    .type-sample {
+      line-height: 1.3;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Token Table */
+    .token-table {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .token-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .token-row:last-child { border-bottom: none; }
+    .token-color {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid #404040;
+      flex-shrink: 0;
+    }
+    .token-info { flex: 1; min-width: 0; }
+    .token-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #d4d4d4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .token-usage {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #525252;
+    }
+    .token-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #737373;
+      flex-shrink: 0;
+    }
+
+    /* Components */
+    .component-section { display: flex; flex-direction: column; gap: 20px; }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .comp-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
       border-radius: 8px;
-      display: none;
-      z-index: 1000;
+      cursor: pointer;
     }
-    .toast.show { display: block; }
+    .comp-btn-primary {
+      background: #f5f5f5;
+      color: #0a0a0a;
+      border: none;
+    }
+    .comp-btn-secondary {
+      background: transparent;
+      color: #d4d4d4;
+      border: 1px solid #404040;
+    }
+    .comp-btn-tertiary {
+      background: #262626;
+      color: #a3a3a3;
+      border: none;
+    }
+    .comp-btn-ghost {
+      background: transparent;
+      color: #525252;
+      border: 1px solid #262626;
+    }
+
+    /* Tabs */
+    .tab-container {
+      display: flex;
+      gap: 0;
+      background: #0a0a0a;
+      border-radius: 10px;
+      padding: 4px;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .tab-btn {
+      padding: 7px 16px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      background: transparent;
+      color: #737373;
+    }
+    .tab-btn.active {
+      background: #262626;
+      color: #f5f5f5;
+    }
+
+    /* Input & Status */
+    .comp-input {
+      background: #0a0a0a;
+      border: 1px solid #262626;
+      color: #f5f5f5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      outline: none;
+      flex: 1 1 180px;
+      min-width: 0;
+    }
+    .status-indicator {
+      background: #0a0a0a;
+      border: 1px solid #262626;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #a3a3a3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #a3a3a3;
+      flex-shrink: 0;
+    }
+
+    /* Metric Cards */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .metric-card {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .metric-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #525252;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .metric-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #f5f5f5;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-change {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #737373;
+    }
+
+    /* Badges */
+    .badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 5px;
+      border: 1px solid #262626;
+    }
+
+    /* A11Y Grid */
+    .a11y-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .a11y-card {
+      border: 1px solid #262626;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .a11y-sample {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .a11y-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #737373;
+      margin-bottom: 4px;
+    }
+    .a11y-ratio {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 56px;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      gap: 12px;
+    }
+    .footer-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #404040;
+    }
+    .footer-dots {
+      display: flex;
+      gap: 3px;
+    }
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo"><span>Black</span>Road</div>
-    <nav style="display: flex; gap: 1rem;">
-      <a href="https://blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Home</a>
-      <a href="https://docs.blackroad.io" style="color: var(--text-secondary); text-decoration: none;">Docs</a>
+    <div class="header-top">
+      <div class="header-left">
+        <div class="header-label">Design System — Brand Template</div>
+        <h1 class="header-title">Color<br>System</h1>
+        <p class="header-desc">A six-color accent spectrum on a grayscale foundation. Warm to cool, ember to arc.</p>
+      </div>
+      <div class="header-dots">
+        <div class="header-dot" style="background: #FF6B2B;"></div>
+        <div class="header-dot" style="background: #FF2255;"></div>
+        <div class="header-dot" style="background: #CC00AA;"></div>
+        <div class="header-dot" style="background: #8844FF;"></div>
+        <div class="header-dot" style="background: #4488FF;"></div>
+        <div class="header-dot" style="background: #00D4FF;"></div>
+      </div>
+    </div>
+
+    <div class="gradient-bar"></div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-target="palette">PALETTE</button>
+      <button class="nav-btn" data-target="gradients">GRADIENTS</button>
+      <button class="nav-btn" data-target="typography">TYPE</button>
+      <button class="nav-btn" data-target="tokens">TOKENS</button>
+      <button class="nav-btn" data-target="components">UI</button>
+      <button class="nav-btn" data-target="a11y">A11Y</button>
     </nav>
   </header>
 
-  <div class="container">
-    <h1>Brand Assets</h1>
-    <p class="subtitle">Guidelines and resources for using the BlackRoad brand.</p>
+  <main>
+    <!-- Palette -->
+    <section id="palette" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Accent Palette</h2>
+        <p class="section-subtitle">Click any swatch to copy hex.</p>
+      </div>
+      <div class="color-grid" id="accent-grid"></div>
+      <div>
+        <div class="gray-label">Grayscale Foundation</div>
+        <div class="gray-grid" id="gray-grid"></div>
+      </div>
+    </section>
 
-    <h2>Color Palette</h2>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF9D00; color: #000;">Primary</div>
-        <div class="color-info">
-          <div class="color-name">Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF9D00')">#FF9D00</div>
+    <!-- Gradients -->
+    <section id="gradients" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Gradients</h2>
+        <p class="section-subtitle">Pre-composed gradient combinations.</p>
+      </div>
+      <div class="gradient-grid" id="gradient-grid"></div>
+    </section>
+
+    <!-- Typography -->
+    <section id="typography" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Typography</h2>
+        <p class="section-subtitle">Space Grotesk · Inter · JetBrains Mono</p>
+      </div>
+      <div class="type-container">
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">Display</span>
+            <span class="type-spec">48px / 700</span>
+          </div>
+          <div class="type-sample" style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #f5f5f5;">Spectrum</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">H1</span>
+            <span class="type-spec">32px / 700</span>
+          </div>
+          <div class="type-sample" style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: #f5f5f5;">System Architecture</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">H2</span>
+            <span class="type-spec">22px / 600</span>
+          </div>
+          <div class="type-sample" style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #f5f5f5;">Agent Coordination Layer</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">Body</span>
+            <span class="type-spec">14px / 400</span>
+          </div>
+          <div class="type-sample" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; color: #d4d4d4;">Distributed intelligence operating across a mesh of autonomous agents, each contributing specialized capability.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">Mono</span>
+            <span class="type-spec">12px / 400</span>
+          </div>
+          <div class="type-sample" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; color: #a3a3a3;">const agent = registry.spawn('observer');</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">Label</span>
+            <span class="type-spec">11px / 500</span>
+          </div>
+          <div class="type-sample" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: #737373;">STATUS: ACTIVE · UPTIME: 99.97%</div>
         </div>
       </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF6B00; color: #000;">Secondary</div>
-        <div class="color-info">
-          <div class="color-name">Deep Orange</div>
-          <div class="color-hex" onclick="copyColor('#FF6B00')">#FF6B00</div>
+    </section>
+
+    <!-- Tokens -->
+    <section id="tokens" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Design Tokens</h2>
+        <p class="section-subtitle">CSS custom properties.</p>
+      </div>
+      <div class="token-table" id="token-table"></div>
+    </section>
+
+    <!-- Components -->
+    <section id="components" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Components</h2>
+        <p class="section-subtitle">All grayscale. Color reserved for data layers.</p>
+      </div>
+      <div class="component-section">
+        <div class="btn-row">
+          <button class="comp-btn comp-btn-primary">Primary</button>
+          <button class="comp-btn comp-btn-secondary">Secondary</button>
+          <button class="comp-btn comp-btn-tertiary">Tertiary</button>
+          <button class="comp-btn comp-btn-ghost">Ghost</button>
+        </div>
+
+        <div class="tab-container" id="tab-container">
+          <button class="tab-btn active" data-tab="0">Overview</button>
+          <button class="tab-btn" data-tab="1">Metrics</button>
+          <button class="tab-btn" data-tab="2">Settings</button>
+        </div>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="text" placeholder="search agents..." class="comp-input">
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            agent.online
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">Uptime</div>
+            <div class="metric-value">98.2%</div>
+            <div class="metric-change">+2.4% from last period</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Latency</div>
+            <div class="metric-value">94.5ms</div>
+            <div class="metric-change">+3.2% from last period</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Throughput</div>
+            <div class="metric-value">90.8%</div>
+            <div class="metric-change">+4.0% from last period</div>
+          </div>
+        </div>
+
+        <div class="badge-row">
+          <span class="badge" style="color: #f5f5f5; background: #262626;">Active</span>
+          <span class="badge" style="color: #a3a3a3; background: #1a1a1a;">Pending</span>
+          <span class="badge" style="color: #737373; background: #141414;">Idle</span>
+          <span class="badge" style="color: #525252; background: #0f0f0f;">Offline</span>
         </div>
       </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF0066; color: #fff;">Accent</div>
-        <div class="color-info">
-          <div class="color-name">Pink</div>
-          <div class="color-hex" onclick="copyColor('#FF0066')">#FF0066</div>
-        </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section id="a11y" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Accessibility</h2>
+        <p class="section-subtitle">Grayscale contrast ratios.</p>
       </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FF006B; color: #fff;">Accent Alt</div>
-        <div class="color-info">
-          <div class="color-name">Rose</div>
-          <div class="color-hex" onclick="copyColor('#FF006B')">#FF006B</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #D600AA; color: #fff;">Magenta</div>
-        <div class="color-info">
-          <div class="color-name">Magenta</div>
-          <div class="color-hex" onclick="copyColor('#D600AA')">#D600AA</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #7700FF; color: #fff;">Violet</div>
-        <div class="color-info">
-          <div class="color-name">Violet</div>
-          <div class="color-hex" onclick="copyColor('#7700FF')">#7700FF</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0066FF; color: #fff;">Blue</div>
-        <div class="color-info">
-          <div class="color-name">Blue</div>
-          <div class="color-hex" onclick="copyColor('#0066FF')">#0066FF</div>
+      <div class="a11y-grid" id="a11y-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="gradient-bar"></div>
+      <div class="footer-row">
+        <span class="footer-label">BlackRoad · Brand v1.0</span>
+        <div class="footer-dots">
+          <div class="footer-dot" style="background: #FF6B2B;"></div>
+          <div class="footer-dot" style="background: #FF2255;"></div>
+          <div class="footer-dot" style="background: #CC00AA;"></div>
+          <div class="footer-dot" style="background: #8844FF;"></div>
+          <div class="footer-dot" style="background: #4488FF;"></div>
+          <div class="footer-dot" style="background: #00D4FF;"></div>
         </div>
       </div>
     </div>
-
-    <h3>Neutrals</h3>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0a0a0a; color: #fff;">Background</div>
-        <div class="color-info">
-          <div class="color-name">Dark</div>
-          <div class="color-hex" onclick="copyColor('#0a0a0a')">#0a0a0a</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #111111; color: #fff;">Surface</div>
-        <div class="color-info">
-          <div class="color-name">Surface</div>
-          <div class="color-hex" onclick="copyColor('#111111')">#111111</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #222222; color: #fff;">Border</div>
-        <div class="color-info">
-          <div class="color-name">Border</div>
-          <div class="color-hex" onclick="copyColor('#222222')">#222222</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #e0e0e0; color: #000;">Text</div>
-        <div class="color-info">
-          <div class="color-name">Primary Text</div>
-          <div class="color-hex" onclick="copyColor('#e0e0e0')">#e0e0e0</div>
-        </div>
-      </div>
-    </div>
-
-    <h2>Logo</h2>
-    <div class="logo-section">
-      <div class="logo-card dark">
-        <div class="logo-display"><span>Black</span>Road</div>
-        <div class="logo-label">Dark Background</div>
-      </div>
-      <div class="logo-card light">
-        <div class="logo-display"><span style="color: #FF9D00;">Black</span>Road</div>
-        <div class="logo-label">Light Background</div>
-      </div>
-    </div>
-
-    <h2>Gradients</h2>
-    <div class="gradient-grid">
-      <div class="gradient-card gradient-1">Orange → Pink</div>
-      <div class="gradient-card gradient-2">Pink → Violet</div>
-      <div class="gradient-card gradient-3">Violet → Blue</div>
-      <div class="gradient-card gradient-4">Full Spectrum</div>
-    </div>
-
-    <h2>Typography</h2>
-    <div class="type-sample">
-      <div class="type-display">System Font Stack</div>
-      <div class="type-alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-      <div class="type-alphabet">abcdefghijklmnopqrstuvwxyz</div>
-      <div class="type-numbers">0123456789</div>
-    </div>
-    <p style="color: var(--text-secondary);">
-      <strong>Primary:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif<br>
-      <strong>Monospace:</strong> 'SF Mono', 'Fira Code', monospace
-    </p>
-
-    <h2>Buttons</h2>
-    <div class="button-showcase">
-      <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-ghost">Secondary Button</button>
-      <button class="btn btn-primary" disabled style="opacity: 0.5;">Disabled</button>
-    </div>
-
-    <h2>Usage Guidelines</h2>
-    <div class="guidelines">
-      <div class="guideline-card do">
-        <h4>Do</h4>
-        <ul>
-          <li>Use the official color palette</li>
-          <li>Maintain clear space around the logo</li>
-          <li>Use dark backgrounds for primary contexts</li>
-          <li>Apply gradients for emphasis</li>
-          <li>Keep text highly readable</li>
-        </ul>
-      </div>
-      <div class="guideline-card dont">
-        <h4>Don't</h4>
-        <ul>
-          <li>Alter the logo colors or proportions</li>
-          <li>Use low contrast text combinations</li>
-          <li>Place logo on busy backgrounds</li>
-          <li>Stretch or distort brand elements</li>
-          <li>Use unofficial color variations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast">Copied to clipboard!</div>
+  </main>
 
   <script>
-    function copyColor(hex) {
-      navigator.clipboard.writeText(hex);
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
+    // Data
+    const COLORS = [
+      { hex: "#FF6B2B", name: "Ember", token: "\u2013accent-1" },
+      { hex: "#FF2255", name: "Fuse", token: "\u2013accent-2" },
+      { hex: "#CC00AA", name: "Pulse", token: "\u2013accent-3" },
+      { hex: "#8844FF", name: "Drift", token: "\u2013accent-4" },
+      { hex: "#4488FF", name: "Signal", token: "\u2013accent-5" },
+      { hex: "#00D4FF", name: "Arc", token: "\u2013accent-6" },
+    ];
+
+    const GRAYS = [
+      { hex: "#0a0a0a", name: "950" },
+      { hex: "#171717", name: "900" },
+      { hex: "#262626", name: "800" },
+      { hex: "#404040", name: "700" },
+      { hex: "#737373", name: "500" },
+      { hex: "#a3a3a3", name: "400" },
+      { hex: "#d4d4d4", name: "300" },
+      { hex: "#f5f5f5", name: "100" },
+    ];
+
+    const GRADIENTS = [
+      { name: "Full Spectrum", css: "linear-gradient(90deg, #FF6B2B, #FF2255, #CC00AA, #8844FF, #4488FF, #00D4FF)" },
+      { name: "Warm \u2192 Cool", css: "linear-gradient(135deg, #FF6B2B, #FF2255, #8844FF, #00D4FF)" },
+      { name: "Neon Pulse", css: "linear-gradient(90deg, #CC00AA, #8844FF, #4488FF)" },
+      { name: "Sunset", css: "linear-gradient(90deg, #FF6B2B, #FF2255, #CC00AA)" },
+      { name: "Electric", css: "linear-gradient(90deg, #8844FF, #4488FF, #00D4FF)" },
+      { name: "Radial Burst", css: "radial-gradient(circle at 30% 50%, #FF2255, #8844FF, #00D4FF)" },
+    ];
+
+    const TOKENS = [
+      ...COLORS.map(c => ({ token: c.token, value: c.hex, usage: "Accent: " + c.name, color: c.hex })),
+      { token: "\u2013bg-primary", value: "#0a0a0a", usage: "Page bg", color: "#0a0a0a" },
+      { token: "\u2013bg-surface", value: "#171717", usage: "Card bg", color: "#171717" },
+      { token: "\u2013border", value: "#262626", usage: "Borders", color: "#262626" },
+      { token: "\u2013text-primary", value: "#f5f5f5", usage: "Primary text", color: "#f5f5f5" },
+      { token: "\u2013text-secondary", value: "#a3a3a3", usage: "Secondary text", color: "#a3a3a3" },
+      { token: "\u2013text-muted", value: "#737373", usage: "Muted text", color: "#737373" },
+    ];
+
+    const A11Y = [
+      { bg: "#0a0a0a", fg: "#f5f5f5", label: "White / Black", ratio: "19.3:1", pass: true },
+      { bg: "#171717", fg: "#d4d4d4", label: "Light / Surface", ratio: "13.2:1", pass: true },
+      { bg: "#0a0a0a", fg: "#a3a3a3", label: "400 / Black", ratio: "8.6:1", pass: true },
+      { bg: "#171717", fg: "#737373", label: "500 / Surface", ratio: "4.1:1", pass: false },
+      { bg: "#0a0a0a", fg: "#525252", label: "600 / Black", ratio: "3.2:1", pass: false },
+      { bg: "#262626", fg: "#f5f5f5", label: "White / 800", ratio: "14.7:1", pass: true },
+    ];
+
+    // Render accent swatches
+    const accentGrid = document.getElementById("accent-grid");
+    COLORS.forEach(color => {
+      const el = document.createElement("div");
+      el.className = "color-swatch";
+      el.innerHTML = `
+        <div class="swatch-color" style="background: ${color.hex};">
+          <div class="swatch-copied">COPIED</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">${color.name}</div>
+          <div class="swatch-hex">${color.hex}</div>
+          <div class="swatch-token">${color.token}</div>
+        </div>
+      `;
+      el.addEventListener("click", () => {
+        navigator.clipboard.writeText(color.hex);
+        const copied = el.querySelector(".swatch-copied");
+        copied.classList.add("show");
+        setTimeout(() => copied.classList.remove("show"), 1200);
+      });
+      accentGrid.appendChild(el);
+    });
+
+    // Render gray swatches
+    const grayGrid = document.getElementById("gray-grid");
+    GRAYS.forEach(color => {
+      const isLight = parseInt(color.name) < 400;
+      const el = document.createElement("div");
+      el.innerHTML = `
+        <div class="gray-swatch-color" style="background: ${color.hex};">
+          <span class="gray-swatch-name" style="color: ${isLight ? "#171717" : "#737373"};">${color.name}</span>
+        </div>
+        <div class="gray-swatch-hex">${color.hex}</div>
+      `;
+      grayGrid.appendChild(el);
+    });
+
+    // Render gradients
+    const gradientGrid = document.getElementById("gradient-grid");
+    GRADIENTS.forEach(g => {
+      const el = document.createElement("div");
+      el.innerHTML = `
+        <div class="gradient-preview" style="background: ${g.css};"></div>
+        <div class="gradient-name">${g.name}</div>
+        <div class="gradient-css">${g.css}</div>
+      `;
+      gradientGrid.appendChild(el);
+    });
+
+    // Render tokens
+    const tokenTable = document.getElementById("token-table");
+    TOKENS.forEach(t => {
+      const el = document.createElement("div");
+      el.className = "token-row";
+      el.innerHTML = `
+        <div class="token-color" style="background: ${t.color};"></div>
+        <div class="token-info">
+          <div class="token-name">${t.token}</div>
+          <div class="token-usage">${t.usage}</div>
+        </div>
+        <div class="token-value">${t.value}</div>
+      `;
+      tokenTable.appendChild(el);
+    });
+
+    // Render a11y grid
+    const a11yGrid = document.getElementById("a11y-grid");
+    A11Y.forEach(c => {
+      const el = document.createElement("div");
+      el.className = "a11y-card";
+      el.style.background = c.bg;
+      el.innerHTML = `
+        <div class="a11y-sample" style="color: ${c.fg};">Aa</div>
+        <div class="a11y-label">${c.label}</div>
+        <div class="a11y-ratio" style="color: ${c.pass ? "#a3a3a3" : "#525252"};">${c.ratio} ${c.pass ? "AA" : "A"}</div>
+      `;
+      a11yGrid.appendChild(el);
+    });
+
+    // Nav interactivity
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const target = document.getElementById(btn.dataset.target);
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Tab interactivity
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
   </script>
 </body>
 </html>
