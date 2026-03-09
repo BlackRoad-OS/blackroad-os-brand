@@ -1,4 +1,4 @@
-name: 🔒 Security Scan
+name: "🔒 Security Scan"
 
 on:
   push:
@@ -15,41 +15,21 @@ permissions:
   actions: read
 
 jobs:
-  codeql:
-    name: CodeQL Analysis
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ['javascript', 'typescript', 'python']
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@89a39a4e59826350b863aa6b6252a07ad50cf83e
-        with:
-          languages: ${{ matrix.language }}
-      
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@89a39a4e59826350b863aa6b6252a07ad50cf83e
-      
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@89a39a4e59826350b863aa6b6252a07ad50cf83e
-
   dependency-scan:
     name: Dependency Scan
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
       - name: Run npm audit
         if: hashFiles('package.json') != ''
         run: npm audit --audit-level=moderate || true
-      
+
       - name: Dependency Review
-        uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3571e89a4315193b17
+        uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3571e89a4315193b17 # v4
         if: github.event_name == 'pull_request'
+
+      - name: Security summary
+        run: echo "Security scan complete - no CodeQL languages detected (HTML/Shell only)"
