@@ -28,7 +28,7 @@ jobs:
         run: npm audit --audit-level=moderate || true
 
       - name: Dependency Review
-        uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3571e89a4315193b17 # v4
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4
         if: github.event_name == 'pull_request'
 
       - name: Security summary
