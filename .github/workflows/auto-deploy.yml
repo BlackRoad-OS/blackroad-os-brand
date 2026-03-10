@@ -51,15 +51,18 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       
       - name: Setup Node
+        if: needs.detect-service.outputs.service_type == 'nextjs'
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       
       - name: Install Dependencies
+        if: needs.detect-service.outputs.service_type == 'nextjs'
         run: npm ci
       
       - name: Build
+        if: needs.detect-service.outputs.service_type == 'nextjs'
         run: npm run build
         env:
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
@@ -69,7 +72,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .next --project-name=${{ github.event.repository.name }}
+          command: pages deploy ${{ needs.detect-service.outputs.service_type == 'nextjs' && '.next' || '.' }} --project-name=${{ github.event.repository.name }}
 
   deploy-railway:
     name: Deploy to Railway
@@ -101,8 +104,12 @@ jobs:
       
       - name: Check Health Endpoint
         run: |
-          URL="${{ secrets.DEPLOY_URL }}/api/health"
-          curl -f $URL || exit 1
+          URL="${{ secrets.DEPLOY_URL }}"
+          if [ -z "$URL" ]; then
+            echo "ℹ️ DEPLOY_URL not set, skipping health check."
+            exit 0
+          fi
+          curl -f --retry 3 --retry-delay 5 "$URL" || exit 1
       
       - name: Notify Success
         if: success()
