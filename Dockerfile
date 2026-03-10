@@ -1,12 +1,4 @@
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --production
-COPY . .
-RUN npm run build --if-present
-
-FROM node:20-alpine
-WORKDIR /app
-COPY --from=builder /app .
-EXPOSE 3000
-CMD ["node", "src/index.js"]
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
